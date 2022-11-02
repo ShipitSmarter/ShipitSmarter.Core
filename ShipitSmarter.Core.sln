@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core", "ShipitSmarter.Core\ShipitSmarter.Core.csproj", "{E8F24E60-69AF-4EDE-B9C2-CA59748977F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core", "src\ShipitSmarter.Core\ShipitSmarter.Core.csproj", "{E8F24E60-69AF-4EDE-B9C2-CA59748977F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
