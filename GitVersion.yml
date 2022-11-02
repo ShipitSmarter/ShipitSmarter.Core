@@ -1,8 +1,1 @@
 next-version: 0.1
-branches:
-  main:
-    tag: ""
-  features:
-    regex: ^features?[/-]
-    tag: alpha
-    source-branches: [ "main" ]
