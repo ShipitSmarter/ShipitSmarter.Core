@@ -4,5 +4,5 @@ branches:
     tag: ""
   features:
     regex: ^features?[/-]
-    tag: alphas
+    tag: alpha
     source-branches: [ "main" ]
