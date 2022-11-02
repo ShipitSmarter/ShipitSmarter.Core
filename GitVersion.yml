@@ -1,0 +1,7 @@
+next-version: 0.1
+branches:
+  main:
+    tag: ''
+  features:
+    regex: ^features?[/-]
+    tag: alphas
