@@ -17,4 +17,11 @@
         <Copyright>$copyright$</Copyright>
         <PackageTags>ShipitSmarter, Core</PackageTags>
     </PropertyGroup>
+
+
+    <ItemGroup>
+        <None Include="Readme.md" Pack="true" PackagePath="/">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 </Project>
