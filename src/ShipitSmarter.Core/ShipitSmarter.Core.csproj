@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Version>0.0.1-alpha.1</Version>
+        <PackageId>ShipitSmarter.Core</PackageId>
+        <Title>ShipitSmarter.Core</Title>
+        <Authors>ShipItSmarter</Authors>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/ShipitSmarter/ShipItSmarter.Core</PackageProjectUrl>
+        <Description>A set of core functionalities used across ShipItSmarter SDK and functionalities</Description>
+        <Copyright>$copyright$</Copyright>
+        <PackageTags>ShipitSmarter, Core</PackageTags>
+    </PropertyGroup>
+</Project>
