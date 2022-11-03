@@ -45,3 +45,10 @@ jobs:
 
       - name: PushNuget
         run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.SHIPITSMARTER_CORE_NUGET_API_KEY }} --skip-duplicate
+      
+      - name: Create Tag
+        uses: negz/create-tag@v1
+        with:
+          version: ${{ env.GitVersion_NuGetVersion }}
+          message: 'Auto tagging version ${{ env.GitVersion_NuGetVersion }}'
+          token: ${{ secrets.GITHUB_TOKEN }}
