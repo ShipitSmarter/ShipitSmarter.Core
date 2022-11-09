@@ -1,8 +1,8 @@
 ﻿namespace ShipitSmarter.Core.Exceptions;
 
 /// <summary>
-///     Base exception class for any domain error.
-///     Mimics the "ProblemDetails" class and allows the setting of a status code so that exceptions can bubble up and be handled by middleware
+/// Base exception class for any domain error.
+/// Mimics the "ProblemDetails" class and allows the setting of a status code so that exceptions can bubble up and be handled by middleware
 /// </summary>
 public abstract class DomainException : Exception
 {
@@ -25,10 +25,7 @@ public abstract class DomainException : Exception
     
     /// <summary>
     /// Gets the <see cref="IDictionary{TKey, TValue}"/> for extension members.
-    /// <para>
-    /// Problem type definitions MAY extend the problem details object with additional members. Extension members appear in the same namespace as
-    /// other members of a problem type.
-    /// </para>
+    /// <param>Problem type definitions MAY extend the problem details object with additional members. Extension members appear in the same namespace as other members of a problem type.</param>
     /// </summary>
     /// <remarks>
     /// The round-tripping behavior for <see cref="Extensions"/> is determined by the implementation of the Input \ Output formatters.
@@ -36,6 +33,10 @@ public abstract class DomainException : Exception
     /// </remarks>
     public Dictionary<string, object> Extensions { get; } = new();
 
+    /// <summary>
+    /// Instantiates a new instance of a <exception cref="DomainException"></exception>
+    /// </summary>
+    /// <param name="message">The message that describes the error.</param>
     protected DomainException(string message) : base(message)
     {
     }

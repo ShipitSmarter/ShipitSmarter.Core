@@ -8,9 +8,7 @@ public class NotFoundException : DomainException
     /// <summary>
     /// Initializes a new instance of the <see cref="NotFoundException"/>
     /// </summary>
-    /// <param name="id">
-    /// An identifier which is the identifier of the resource that was not found 
-    /// </param>
+    /// <param name="id">An identifier which is the identifier of the resource that was not found</param>
     public NotFoundException(string id) : base($"Identifier '{id}' not found.")
     {
         StatusCode = 404;
@@ -19,12 +17,8 @@ public class NotFoundException : DomainException
     /// <summary>
     /// Initializes a new instance of the <see cref="NotFoundException"/>
     /// </summary>
-    /// <param name="id">
-    /// An identifier which is the identifier of the resource that was not found 
-    /// </param>
-    /// <param name="type">
-    /// Type of the identifier. Type name is used in the exception message
-    /// </param>
+    /// <param name="id">An identifier which is the identifier of the resource that was not found</param>
+    /// <param name="type">Type of the identifier. Type name is used in the exception message</param>
     public NotFoundException(string id, Type type) : base($"{type.Name} {id} not found.")
     {
         StatusCode = 404;
@@ -33,11 +27,7 @@ public class NotFoundException : DomainException
     /// <summary>
     /// Initializes a new instance of the <see cref="NotFoundException"/>
     /// </summary>
-    /// <typeparam name="T">
-    /// Type of the object that was not found
-    /// </typeparam>
-    /// <param name="id">
-    /// An identifier which is the identifier of the resource that was not found 
-    /// </param>
+    /// <typeparam name="T">Type of the object that was not found</typeparam>
+    /// <param name="id">An identifier which is the identifier of the resource that was not found</param>
     public static NotFoundException ForType<T>(string id) => new(id, typeof(T));
 }
