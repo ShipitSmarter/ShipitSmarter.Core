@@ -14,13 +14,12 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/ShipitSmarter/ShipItSmarter.Core</PackageProjectUrl>
         <Description>A set of core functionalities used across ShipItSmarter SDK and functionalities</Description>
-        <Copyright>$copyright$</Copyright>
         <PackageTags>ShipitSmarter, Core</PackageTags>
     </PropertyGroup>
 
 
     <ItemGroup>
-        <None Include="Readme.md" Pack="true" PackagePath="/">
+        <None Include="../Readme.md" Pack="true" PackagePath="/">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
