@@ -14,13 +14,20 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/ShipitSmarter/ShipItSmarter.Core</PackageProjectUrl>
         <Description>A set of core functionalities used across ShipItSmarter SDK and functionalities</Description>
-        <Copyright>$copyright$</Copyright>
         <PackageTags>ShipitSmarter, Core</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\ShipitSmarter.Core.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\ShipitSmarter.Core.xml</DocumentationFile>
     </PropertyGroup>
 
 
     <ItemGroup>
-        <None Include="Readme.md" Pack="true" PackagePath="/">
+        <None Include="../../Readme.md" Pack="true" PackagePath="/">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
