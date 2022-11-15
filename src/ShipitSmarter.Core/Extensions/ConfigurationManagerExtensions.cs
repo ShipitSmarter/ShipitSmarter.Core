@@ -9,7 +9,7 @@ namespace Microsoft.Extensions.Configuration;
 public static class ConfigurationManagerExtensions
 {
     /// <summary>
-    /// Get environment variable and throw and
+    /// Get environment variable and throw exception if empty
     /// </summary>
     /// <param name="configurationManager"></param>
     /// <param name="key">Environment variable</param>
