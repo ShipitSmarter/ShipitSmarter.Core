@@ -23,7 +23,7 @@ public class SettingsLoggerStartupFilter : IStartupFilter
     {
         foreach (var setting in _settingsToLog)
         {
-            var json = JsonSerializer.Serialize((object)setting); // cast to Object otherwise serialize returns nothing
+            var json = JsonSerializer.Serialize((object)setting, JsonSerializerOptions.Default); // cast to Object otherwise serialize returns nothing
             Console.WriteLine($"Setting {setting.GetType().Name}: {json}");
         }
 
