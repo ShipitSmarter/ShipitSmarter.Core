@@ -53,7 +53,7 @@ jobs:
           message: 'Auto tagging version ${{ env.GitVersion_NuGetVersion }}'
           token: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: unlist previous alpha 1.0.x alpha packages
+      - name: Remove pull request versions of package
         uses: darenm/unlist-nuget@v1
         with:
           NUGET_PACKAGE: ShipitSmarter.Core # Full Package ID
