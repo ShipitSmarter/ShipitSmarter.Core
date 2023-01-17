@@ -5,23 +5,25 @@ namespace ShipitSmarter.Core.Middlewares;
 /// <summary>
 /// Middleware to correlate requests (reads the correlation id from the header, or adds on if it doesn't exist.
 /// </summary>
-/// <example>
 /// <code>
-/// builder.Services.AddScoped<ICorrelator, YourCorrelator>();
-/// app.UseMiddleware<CorrelationMiddleware>();
+/// builder.Services.AddScoped&lt;ICorrelator, YourCorrelator&gt;();
+/// app.UseMiddleware&lt;CorrelationMiddleware&gt;();
 /// </code>
-/// </example>
 public class CorrelationMiddleware
 {
     private const string _correlationIdHeaderName = "x-correlation-id";
     
     private readonly RequestDelegate _next;
 
+    /// <see cref="CorrelationMiddleware"/>
     public CorrelationMiddleware(RequestDelegate next)
     {
         _next = next;
     }
 
+    /// <summary>
+    /// When the middleware is invoked
+    /// </summary>
     public async Task InvokeAsync(HttpContext context, ICorrelator correlator)
     {
         var correlationId = GetOrCreateCorrelationId(context.Request);

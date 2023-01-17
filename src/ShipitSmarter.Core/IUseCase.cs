@@ -6,6 +6,7 @@ namespace ShipitSmarter.Core;
 /// <typeparam name="TIn">The input for the use case</typeparam>
 public interface IUseCase<in TIn>
 {
+    /// <see cref="IUseCase{TIn}"/>
     Task Handle(TIn input);
 }
 
@@ -16,5 +17,6 @@ public interface IUseCase<in TIn>
 /// <typeparam name="TOut">The output for the use case</typeparam>
 public interface IUseCase<in TIn, TOut>
 {
+    /// <see cref="IUseCase{TIn, TOut}"/>
     Task<TOut> Handle(TIn input);
 }

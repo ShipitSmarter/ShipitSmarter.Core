@@ -8,18 +8,20 @@ namespace ShipitSmarter.Core.Filters;
 /// <summary>
 /// An <see cref="IStartupFilter"/> that logs the <see cref="ILoggableSettings"/> objects to Console.Out on app startup
 /// </summary>
-/// <example><code>
-/// builder.ConfigureSettings<MySettings>(nameof(MySettings));
-/// </code></example>
+/// <code>
+/// builder.ConfigureSettings&lt;MySettings&gt;(nameof(MySettings));
+/// </code>
 public class SettingsLoggerStartupFilter : IStartupFilter
 {
     private readonly IEnumerable<ILoggableSettings> _settingsToLog;
 
+    /// <see cref="SettingsLoggerStartupFilter"/>
     public SettingsLoggerStartupFilter(IEnumerable<ILoggableSettings> settingsToLog)
     {
         _settingsToLog = settingsToLog;
     }
 
+    /// <inheritdoc cref="IStartupFilter.Configure"/>
     public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next)
     {
         foreach (var setting in _settingsToLog)
