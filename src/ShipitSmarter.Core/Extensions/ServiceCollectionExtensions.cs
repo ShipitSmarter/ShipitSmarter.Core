@@ -10,10 +10,10 @@ namespace Microsoft.Extensions.DependencyInjection;
 /// <summary>
 /// Configure TSettings from configuration
 /// </summary>
-/// <example><code>
+/// <code>
 /// // in the Program.cs
-/// builder.Services.ConfigureSettings<MySettings>(builder.Configuration, nameof(MySettings)); 
-/// </code></example>
+/// builder.Services.ConfigureSettings&lt;MySettings&gt;(builder.Configuration, nameof(MySettings)); 
+/// </code>
 public static class ServiceCollectionExtensions
 {
     /// <summary>
