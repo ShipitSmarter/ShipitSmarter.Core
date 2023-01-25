@@ -21,7 +21,7 @@ public static class ServiceCollectionExtensions
     /// You can now inject the "raw" settings object into your handlers, without taking a dependency on the Microsoft.Extensions.Options package.
     /// I find this preferable as the IOptions&lt;TSettings&gt; interface is largely just noise in this case.
     /// </summary>
-    public static IServiceCollection ConfigureSettings<TSettings>(this IServiceCollection services, ConfigurationManager configuration,
+    public static IServiceCollection ConfigureSettings<TSettings>(this IServiceCollection services, IConfiguration configuration,
         string configurationSectionKey) where TSettings : class, new()
     {
         var settings = configuration.GetSection(configurationSectionKey);
