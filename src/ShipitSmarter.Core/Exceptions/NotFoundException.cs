@@ -27,9 +27,9 @@ public class NotFoundException : DomainException
     /// <summary>
     /// Initializes a new instance of the <see cref="NotFoundException"/>
     /// </summary>
-    /// <param name="id">An identifier which is the identifier of the resource that was not found</param>
-    /// <param name="message">Custom message that precedes the identifier</param>
-    public NotFoundException(string id, string message) : base($"{message} {id}.")
+    /// <param name="message">A composite format string, like in string.Format()</param>
+    /// <param name="args">An object array that contains one or more objects to format.</param>
+    public NotFoundException(string message, params object?[] args) : base(string.Format(message, args))
     {
         StatusCode = 404;
     }
