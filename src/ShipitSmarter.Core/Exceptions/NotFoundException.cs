@@ -27,6 +27,16 @@ public class NotFoundException : DomainException
     /// <summary>
     /// Initializes a new instance of the <see cref="NotFoundException"/>
     /// </summary>
+    /// <param name="id">An identifier which is the identifier of the resource that was not found</param>
+    /// <param name="message">Custom message that precedes the identifier</param>
+    public NotFoundException(string id, string message) : base($"{message} {id}.")
+    {
+        StatusCode = 404;
+    }
+    
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NotFoundException"/>
+    /// </summary>
     /// <typeparam name="T">Type of the object that was not found</typeparam>
     /// <param name="id">An identifier which is the identifier of the resource that was not found</param>
     public static NotFoundException ForType<T>(string id) => new(id, typeof(T));
