@@ -28,8 +28,8 @@ public class NotFoundException : DomainException
     /// Initializes a new instance of the <see cref="NotFoundException"/>
     /// </summary>
     /// <param name="message">A composite format string, like in string.Format()</param>
-    /// <param name="args">An object array that contains one or more objects to format.</param>
-    public NotFoundException(string message, params object?[] args) : base(string.Format(message, args))
+    /// <param name="args">A string array that contains one or more strings to format.</param>
+    public NotFoundException(string message, params string[] args) : base(string.Format(message, args))
     {
         StatusCode = 404;
     }
