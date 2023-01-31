@@ -12,4 +12,14 @@ public class LogicException : DomainException
     {
         StatusCode = 400;
     }
+
+    /// <summary>
+    /// Initializes a new instance of the <exception cref="LogicException"></exception> class with a specified error message and detailed explanation.
+    /// </summary>
+    /// <param name="message">The message that summarises the error</param>
+    /// <param name="detail">The detailed explanation of the error</param>
+    public LogicException(string message, string detail) : base(message)
+    {
+        Detail = detail;
+    }
 }
