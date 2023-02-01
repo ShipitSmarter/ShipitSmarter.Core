@@ -20,6 +20,7 @@ public class LogicException : DomainException
     /// <param name="detail">The detailed explanation of the error</param>
     public LogicException(string message, string detail) : base(message)
     {
+        StatusCode = 400;
         Detail = detail;
     }
 }
