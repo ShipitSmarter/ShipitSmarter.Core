@@ -34,6 +34,7 @@
 
 
     <ItemGroup>
+      <PackageReference Include="JsonSchema.Net" Version="4.1.1" />
       <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
       <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
@@ -41,5 +42,6 @@
       <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
       <PackageReference Include="System.Text.Json" Version="7.0.1" />
+      <PackageReference Include="YamlDotNet" Version="13.1.0" />
     </ItemGroup>
 </Project>
