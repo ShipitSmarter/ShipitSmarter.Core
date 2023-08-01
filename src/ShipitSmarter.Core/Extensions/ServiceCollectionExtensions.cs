@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using ShipitSmarter.Core;
 using ShipitSmarter.Core.Filters;
+using ShipitSmarter.Core.Implementations;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
@@ -40,5 +41,13 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddSettingsLogging(this IServiceCollection services)
     {
         return services.AddTransient<IStartupFilter, SettingsLoggerStartupFilter>();
+    }
+
+    /// <summary>
+    /// Add <see cref="IGlobPattern"/> for your application.
+    /// </summary>
+    public static IServiceCollection AddGlobPattern(this IServiceCollection services)
+    {
+        return services.AddScoped<IGlobPattern, Globber>();
     }
 }
