@@ -56,6 +56,6 @@ jobs:
       - name: Remove pull request versions of package
         uses: darenm/unlist-nuget@v1
         with:
-          NUGET_PACKAGE: ShipitSmarter.Core # Full Package ID
+          NUGET_PACKAGE: shipitsmarter.core # Full Package ID in lower case!
           VERSION_REGEX: ^\d.\d.\d+-pullrequest.* # Regex pattern to match version
           NUGET_KEY: ${{ secrets.SHIPITSMARTER_PACKAGE_DELETER }} # nuget.org API key
