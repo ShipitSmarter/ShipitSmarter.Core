@@ -1,0 +1,35 @@
+{
+    "Request": {
+        "AuthenticationMethods": [
+            {
+                "Key": "hash-1-INqrr6mmgvgBVwv9+2YlDE7uOgwaRdJA8pkMsVTeqTk4oK6H",
+                "Id": "dpd-nl-webservices",
+                "Description": "dpd-nl-webservices"
+            }
+        ]
+    },
+    "Imports":
+    [
+        "defaults-{{environment}}.yaml",
+        "customers/{{tennant}}/-my-dhl-api-{{environment}}.yaml",
+        "customers/{{tennant}}/my-dhl-api-{{environment}}.enc.yaml"
+    ],
+    "Steps": [
+        {
+            "$type": "Core.Entities.Configs.Steps.HttpConfiguration, Core",
+            "StartCondition": "{{include 'functions_custom.sbn'; startBooking}}",
+            "Headers": {
+                "Content-Type": "text/xml"
+            },
+            "Id": "booking",
+            "Method": "POST",
+            "Url": "{{include 'functions_custom.sbn'; getEndpoint 'booking'}}",
+            "Template": "{{ include 'booking.sbn' }}"
+        }
+    ],
+    "Response": {
+        "Body": "{{ include 'response.sbn'  }}",
+        "Headers": {},
+        "StatusCode": 200
+    }
+}
