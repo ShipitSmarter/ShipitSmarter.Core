@@ -42,12 +42,4 @@ public static class ServiceCollectionExtensions
     {
         return services.AddTransient<IStartupFilter, SettingsLoggerStartupFilter>();
     }
-
-    /// <summary>
-    /// Add <see cref="IGlobPattern"/> for your application.
-    /// </summary>
-    public static IServiceCollection AddGlobPattern(this IServiceCollection services)
-    {
-        return services.AddScoped<IGlobPattern, Globber>();
-    }
 }
