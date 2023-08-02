@@ -7,6 +7,10 @@ Specific documentation and usage of the library can be found [here](src/ShipItSm
 ## Features
 * Exceptions
   * Set of commonly used exceptions within all applications
+* Use cases
+  * Use case dispatcher, will validate the input for you before calling Handle on the use case
+* Validation
+  * Implement your own Validator using the IValidationService
 
 ## Getting Started
 
