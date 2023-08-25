@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <ImplicitUsings>enable</ImplicitUsings>
         <Version>0.0.1-alpha.1</Version>
         <PackageId>ShipitSmarter.Core</PackageId>
@@ -16,6 +17,10 @@
         <Description>A set of core functionalities used across ShipItSmarter SDK and functionalities</Description>
         <PackageTags>ShipitSmarter, Core</PackageTags>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <DocumentationFile>bin\Debug\ShipitSmarter.Core.xml</DocumentationFile>
@@ -36,13 +41,12 @@
     <ItemGroup>
       <PackageReference Include="JsonSchema.Net" Version="4.1.1" />
       <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
-      <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
-      <PackageReference Include="System.Text.Json" Version="7.0.1" />
-      <PackageReference Include="YamlDotNet" Version="13.1.0" />
+      <PackageReference Include="System.Text.Json" Version="7.0.3" />
+      <PackageReference Include="YamlDotNet" Version="13.2.0" />
     </ItemGroup>
 </Project>
