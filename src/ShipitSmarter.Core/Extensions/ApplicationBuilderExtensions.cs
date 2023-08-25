@@ -1,8 +1,8 @@
 using System.Globalization;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 
-namespace ShipitSmarter.Core.Extensions;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.AspNetCore.Builder;
 
 /// <summary>
 /// Extensions for <see cref="IApplicationBuilder"/>
