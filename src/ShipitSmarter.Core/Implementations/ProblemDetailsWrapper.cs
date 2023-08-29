@@ -24,8 +24,11 @@ public class ProblemDetailsWrapper
     /// Note: following fields are added automatically <see cref="CoreExceptionHandler.Handle"/>
     ///   - CorrelationId
     ///   - Type (based on status code)
-    ///   - Instance (based on request path) 
+    ///   - Instance (based on request path)
     /// </summary>
+    /// <remarks>
+    /// When inheriting this class and overriding this method, always have a fallback that calls base.Wrap(exception).
+    /// </remarks>
     public virtual ProblemDetails Wrap(Exception exception)
     {
         return exception switch
