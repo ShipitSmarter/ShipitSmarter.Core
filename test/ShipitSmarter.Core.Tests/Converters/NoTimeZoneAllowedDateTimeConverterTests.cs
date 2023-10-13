@@ -9,7 +9,7 @@ public class NoTimeZoneAllowedDateTimeConverterTests
     {
         Converters = { new NoTimeZoneAllowedDateTimeConverter() }
     };
-    
+
     [Theory]
     [InlineData("2021-09-01T00:00:00+02:00")]
     [InlineData("2021-09-01T00:00:00Z")]
@@ -27,8 +27,8 @@ public class NoTimeZoneAllowedDateTimeConverterTests
         var testClass = JsonSerializer.Deserialize<TestClass>(Wrap(dateTimeString), _options);
         Assert.Equal(new DateTime(2021, 9, 1, 0, 0, 0, DateTimeKind.Utc), testClass!.DateTime);
         
-        // var backToString = JsonSerializer.Serialize(testClass, _options);
-        // Assert.Equal(Wrap(dateTimeString), backToString);
+        var backToString = JsonSerializer.Serialize(testClass, _options);
+        Assert.Equal(Wrap(dateTimeString), backToString);
     }
     
     private string Wrap(string dateTimeString)

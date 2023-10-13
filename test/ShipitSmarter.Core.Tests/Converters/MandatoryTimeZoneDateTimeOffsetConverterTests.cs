@@ -27,8 +27,8 @@ public class MandatoryTimeZoneDateTimeOffsetConverterTests
         var testClass = JsonSerializer.Deserialize<TestClass>(Wrap(dateTimeString), _options);
         Assert.Equal(new DateTimeOffset(2021, 9, 1, 0, 0, 0, TimeSpan.FromHours(2)), testClass!.DateTimeOffset);
         
-        // var backToString = JsonSerializer.Serialize(testClass, _options);
-        // Assert.Equal(Wrap(dateTimeString), backToString);
+        var backToString = JsonSerializer.Serialize(testClass, _options);
+        Assert.Equal(Wrap(dateTimeString), backToString);
     }
     
     [Fact]
@@ -38,6 +38,9 @@ public class MandatoryTimeZoneDateTimeOffsetConverterTests
         
         var testClass = JsonSerializer.Deserialize<TestClass>(Wrap(dateTimeString), _options);
         Assert.Equal(new DateTimeOffset(2021, 9, 1, 0, 0, 0, TimeSpan.Zero), testClass!.DateTimeOffset);
+        
+        var backToString = JsonSerializer.Serialize(testClass, _options);
+        Assert.Equal(Wrap(dateTimeString), backToString);
     }
 
     private string Wrap(string dateTimeString)
