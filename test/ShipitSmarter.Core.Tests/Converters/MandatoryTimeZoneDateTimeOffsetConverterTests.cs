@@ -19,28 +19,19 @@ public class MandatoryTimeZoneDateTimeOffsetConverterTests
         Assert.Equal("Time zone specification for DateTimeOffset is mandatory", exception.Message);
     }
     
-    [Fact]
-    public void Read_WithDateTimeOffsetWithTimeZone_ReturnsDateTimeOffset()
+    [Theory]
+    [InlineData("2021-09-01T00:00:00+02:00", 2, "2021-09-01T00:00:00+02:00")]
+    [InlineData("2021-09-01T00:00:00Z", 0, "2021-09-01T00:00:00+00:00")]
+    public void Read_WithDateTimeOffsetWithTimeZone_ReturnsDateTimeOffset(string dateTimeString, int offSet, string expectedSerializedDateTimeOffset)
     {
-        var dateTimeString = "2021-09-01T00:00:00+02:00";
+        var expectedTimeSpan = offSet == 0 ? TimeSpan.Zero : TimeSpan.FromHours(offSet);
+        var expectedDateTimeOffset = new DateTimeOffset(2021, 9, 1, 0, 0, 0, expectedTimeSpan);
         
         var testClass = JsonSerializer.Deserialize<TestClass>(Wrap(dateTimeString), _options);
-        Assert.Equal(new DateTimeOffset(2021, 9, 1, 0, 0, 0, TimeSpan.FromHours(2)), testClass!.DateTimeOffset);
+        Assert.Equal(expectedDateTimeOffset, testClass!.DateTimeOffset);
         
         var backToString = JsonSerializer.Serialize(testClass, _options);
-        Assert.Equal(Wrap(dateTimeString), backToString);
-    }
-    
-    [Fact]
-    public void Read_WithDateTimeOffsetWithUtcTimeZone_ReturnsDateTimeOffset()
-    {
-        var dateTimeString = "2021-09-01T00:00:00Z";
-        
-        var testClass = JsonSerializer.Deserialize<TestClass>(Wrap(dateTimeString), _options);
-        Assert.Equal(new DateTimeOffset(2021, 9, 1, 0, 0, 0, TimeSpan.Zero), testClass!.DateTimeOffset);
-        
-        var backToString = JsonSerializer.Serialize(testClass, _options);
-        Assert.Equal(Wrap(dateTimeString), backToString);
+        Assert.Equal(Wrap(expectedSerializedDateTimeOffset), backToString);
     }
 
     private string Wrap(string dateTimeString)

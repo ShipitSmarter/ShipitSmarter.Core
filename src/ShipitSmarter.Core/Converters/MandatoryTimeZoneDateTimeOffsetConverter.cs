@@ -37,6 +37,6 @@ public class MandatoryTimeZoneDateTimeOffsetConverter : JsonConverter<DateTimeOf
     /// <param name="options"></param>
     public override void Write(Utf8JsonWriter writer, DateTimeOffset value, JsonSerializerOptions options)
     {
-        JsonSerializer.Serialize(writer, value, options);
+        JsonSerializer.Serialize(writer, value);
     }
 }
