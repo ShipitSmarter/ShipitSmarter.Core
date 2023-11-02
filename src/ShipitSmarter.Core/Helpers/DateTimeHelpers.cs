@@ -44,6 +44,6 @@ public static class DateTimeHelpers
     /// <returns>ISO 8601 compliant string representation</returns>
     public static string ToIso8601(this DateTime value)
     {
-        return value.ToString("O", CultureInfo.InvariantCulture);
+        return value.ToString("yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
     }
 }
