@@ -32,7 +32,8 @@ public class SmartEnumDocumentFilter : IDocumentFilter
 
         foreach (var smartEnumType in smartEnumTypes)
         {
-            if (!context.SchemaRepository.Schemas.TryGetValue(smartEnumType.Name, out var schema))
+            var schema = GetSchemaForType(smartEnumType, context);
+            if (schema == null)
             {
                 // The smart enum is not mentioned in the Swagger definition
                 continue;
@@ -52,6 +53,26 @@ public class SmartEnumDocumentFilter : IDocumentFilter
             schema.Type = "string";
             schema.Enum = openApiValues;
         }
+    }
+    
+    private static OpenApiSchema? GetSchemaForType(Type? type, DocumentFilterContext context)
+    {
+        // Returns the schema for the type if the schema key is either identical to the type name or ends with $".{type.Name}"
+        if (type == null)
+        {
+            return null;
+        }
+        
+        var candidates = context.SchemaRepository.Schemas
+            .Where(x => x.Key == type.Name || x.Key.EndsWith($".{type.Name}"))
+            .ToList();
+
+        return candidates.Count switch
+        {
+            0 => null,
+            1 => context.SchemaRepository.Schemas[candidates[0].Key],
+            _ => throw new InvalidOperationException($"Multiple schemas found for type {type.Name}"),
+        };
     }
 
     private static bool IsTypeDerivedFromGenericType(Type? typeToCheck, Type genericType)
