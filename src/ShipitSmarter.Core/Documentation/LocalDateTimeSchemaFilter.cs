@@ -5,7 +5,7 @@ namespace ShipitSmarter.Core.Documentation;
 
 
 /// <summary>
-/// Swwagger filter to add a clarification to DateTime schema to indicate that it is not allowed to specify a time zone
+/// Swagger filter to add a clarification to DateTime schema to indicate that it is not allowed to specify a time zone
 /// </summary>
 public class LocalDateTimeSchemaFilter : ISchemaFilter
 {
