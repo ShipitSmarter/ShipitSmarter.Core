@@ -7,12 +7,12 @@ namespace ShipitSmarter.Core.ApiBehaviors;
 
 /// <summary>
 /// Configures the model state response to return our ProblemDetails with custom fields.
-/// <example>
+/// <code>
 ///     services.AddControllers().ConfigureApiBehaviorOptions(options =>
 ///     {
 ///         options.InvalidModelStateResponseFactory = ShipitSmarter.Core.ApiBehaviors.InvalidModelStateResponseFactory.CreateValidationResponse;
 ///     });
-/// </example> 
+/// </code> 
 /// </summary>
 public static class InvalidModelStateResponseFactory
 {

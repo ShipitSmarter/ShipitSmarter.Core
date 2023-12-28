@@ -13,7 +13,7 @@ public class SmartEnumDocumentFilter : IDocumentFilter
 {
     private readonly List<Assembly> _assembliesToScan;
 
-    /// <inheritdoc cref="SmartEnumDocumentFilter"/>>
+    /// <inheritdoc cref="SmartEnumDocumentFilter"/>
     public SmartEnumDocumentFilter(List<Assembly> assembliesToScan)
     {
         _assembliesToScan = assembliesToScan;
