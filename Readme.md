@@ -12,6 +12,10 @@ Specific documentation and usage of the library can be found [here](src/ShipItSm
 * Validation
   * Implement your own Validator using the IValidationService
 
+## Versioning
+This is based on the `dotnet` version the code is build for.  
+So dotnet 8.x will use `v8.x.x` as a version for the package.
+
 ## Getting Started
 
 Install via Nuget
