@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -40,16 +40,16 @@
 
     <ItemGroup>
       <PackageReference Include="Ardalis.SmartEnum" Version="2.1.0" />
-      <PackageReference Include="JsonSchema.Net" Version="4.1.1" />
+      <PackageReference Include="JsonSchema.Net" Version="5.4.3" />
       <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
-      <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
-      <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
-      <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
-      <PackageReference Include="Microsoft.OpenApi" Version="1.6.9" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+      <PackageReference Include="Microsoft.OpenApi" Version="1.6.11" />
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
-      <PackageReference Include="System.Text.Json" Version="7.0.3" />
-      <PackageReference Include="YamlDotNet" Version="13.2.0" />
+      <PackageReference Include="System.Text.Json" Version="8.0.0" />
+      <PackageReference Include="YamlDotNet" Version="13.7.1" />
     </ItemGroup>
 </Project>
