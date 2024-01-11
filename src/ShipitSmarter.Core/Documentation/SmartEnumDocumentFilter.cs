@@ -43,9 +43,14 @@ public class SmartEnumDocumentFilter : IDocumentFilter
             schema.Properties = null;
             schema.AdditionalProperties = null;
 
-            var enumValues = smartEnumType
-                .GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy)
-                .Select(x => x.Name);
+            var typeFields = smartEnumType.GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+            var enumValues = typeFields
+                .Select(typeField => smartEnumType
+                    .GetProperty("Name")?
+                    .GetValue(typeField.GetValue(null))?
+                    .ToString())
+                .OfType<string>()
+                .ToList();
 
             var openApiValues = new OpenApiArray();
             openApiValues.AddRange(enumValues.Select(x => new OpenApiString(x)));
