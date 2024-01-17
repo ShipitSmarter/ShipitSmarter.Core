@@ -25,6 +25,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\src\ShipitSmarter.Core.AspNet\ShipitSmarter.Core.AspNet.csproj" />
+      <ProjectReference Include="..\..\src\ShipitSmarter.Core.Serialization\ShipitSmarter.Core.Serialization.csproj" />
       <ProjectReference Include="..\..\src\ShipitSmarter.Core\ShipitSmarter.Core.csproj" />
     </ItemGroup>
 

@@ -2,7 +2,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ShipitSmarter.Core.Constants;
+namespace ShipitSmarter.Core.Serialization.Constants;
 
 /// <summary>
 /// Default for JsonSerializerOptions

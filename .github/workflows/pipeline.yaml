@@ -49,6 +49,7 @@ jobs:
         run: |
           dotnet pack src/ShipitSmarter.Core/ShipitSmarter.Core.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.GitVersion_NuGetVersion }}
           dotnet pack src/ShipitSmarter.Core.AspNet/ShipitSmarter.Core.AspNet.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.GitVersion_NuGetVersion }}
+          dotnet pack src/ShipitSmarter.Core.Serialization/ShipitSmarter.Core.Serialization.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.GitVersion_NuGetVersion }}
 
       - name: PushNuget
         run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.SHIPITSMARTER_CORE_NUGET_API_KEY }} --skip-duplicate
@@ -61,7 +62,7 @@ jobs:
           message: 'Auto tagging version ${{ env.GitVersion_NuGetVersion }}'
           token: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Remove pull request versions of package
+      - name: Remove pull request versions of core package
         if: github.ref_name == 'main'
         uses: darenm/unlist-nuget@v1
         with:
@@ -69,10 +70,18 @@ jobs:
           VERSION_REGEX: ^\d.\d.\d+-pullrequest.* # Regex pattern to match version
           NUGET_KEY: ${{ secrets.SHIPITSMARTER_PACKAGE_DELETER }} # nuget.org API key
 
-      - name: Remove pull request versions of package
+      - name: Remove pull request versions of aspnet package
         if: github.ref_name == 'main'
         uses: darenm/unlist-nuget@v1
         with:
           NUGET_PACKAGE: shipitsmarter.core.aspnet # Full Package ID in lower case!
+          VERSION_REGEX: ^\d.\d.\d+-pullrequest.* # Regex pattern to match version
+          NUGET_KEY: ${{ secrets.SHIPITSMARTER_PACKAGE_DELETER }} # nuget.org API key
+
+      - name: Remove pull request versions of serialization package
+        if: github.ref_name == 'main'
+        uses: darenm/unlist-nuget@v1
+        with:
+          NUGET_PACKAGE: shipitsmarter.core.serialization # Full Package ID in lower case!
           VERSION_REGEX: ^\d.\d.\d+-pullrequest.* # Regex pattern to match version
           NUGET_KEY: ${{ secrets.SHIPITSMARTER_PACKAGE_DELETER }} # nuget.org API key

@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ShipitSmarter.Core.Converters;
+namespace ShipitSmarter.Core.Serialization.Converters;
 
 /// <summary>
 /// Custom JsonConverter to enforce time zone specification for DateTimeOffset

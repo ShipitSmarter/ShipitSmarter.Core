@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.AspNet", "src\ShipitSmarter.Core.AspNet\ShipitSmarter.Core.AspNet.csproj", "{4029F596-E24E-4174-8A0E-A120963FE086}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Serialization", "src\ShipitSmarter.Core.Serialization\ShipitSmarter.Core.Serialization.csproj", "{8A3F5769-5ABF-4F4E-8EE7-03BDFB9F9B37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{4029F596-E24E-4174-8A0E-A120963FE086}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4029F596-E24E-4174-8A0E-A120963FE086}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4029F596-E24E-4174-8A0E-A120963FE086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A3F5769-5ABF-4F4E-8EE7-03BDFB9F9B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A3F5769-5ABF-4F4E-8EE7-03BDFB9F9B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A3F5769-5ABF-4F4E-8EE7-03BDFB9F9B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A3F5769-5ABF-4F4E-8EE7-03BDFB9F9B37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

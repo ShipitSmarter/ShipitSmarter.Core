@@ -8,13 +8,13 @@
         <Nullable>enable</Nullable>
         <Version>0.0.1-alpha.1</Version>
         <PackageId>ShipitSmarter.Core.AspNet</PackageId>
-        <Title>ShipitSmarter.Core</Title>
+        <Title>ShipitSmarter.Core.AspNet</Title>
         <Authors>ShipItSmarter</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/ShipitSmarter/ShipItSmarter.Core</PackageProjectUrl>
-        <Description>A set of core functionalities used across ShipItSmarter SDK and functionalities</Description>
+        <Description>A set of aspnet functionalities used across ShipItSmarter SDK and functionalities</Description>
         <PackageTags>ShipitSmarter, Core, AspNet</PackageTags>
     </PropertyGroup>
 
