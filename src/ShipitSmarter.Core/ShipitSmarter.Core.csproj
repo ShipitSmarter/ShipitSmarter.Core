@@ -33,7 +33,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Ardalis.SmartEnum" Version="2.1.0" />
       <PackageReference Include="JsonSchema.Net" Version="5.4.3" />
       <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="8.0.0" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
