@@ -1,33 +1,37 @@
-name: main-ci
-
+name: Build and Test
 on:
-  pull_request:
-    branches: [ "main" ]
   push:
-    branches: [ "main" ]
-
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
     
 concurrency:
   group: ${{ github.head_ref || github.run_id }}-build
   cancel-in-progress: true
 
-permissions:
-  id-token: write
-  contents: write
-  checks: write
-  issues: read
-  pull-requests: write
-  actions: write
-
 jobs:
   build:
-
-    name: publish-main
+    name: Publish
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ShipitSmarter/actions/initialise@main
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Needed for gitversion
+          
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.15
+        with:
+          versionSpec: '5.x'
+          
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v0.9.15
+        with:
+          useConfigFile: true
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
