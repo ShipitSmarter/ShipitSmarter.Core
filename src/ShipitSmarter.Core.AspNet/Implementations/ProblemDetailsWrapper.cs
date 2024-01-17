@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShipitSmarter.Core.Exceptions;
 
-namespace ShipitSmarter.Core.Implementations;
+namespace ShipitSmarter.Core.AspNet.Implementations;
 
 /// <summary>
 /// Factory to wrap a an exception into a <see cref="ProblemDetails"/>

@@ -2,7 +2,7 @@
 
 ShipitSmarter Core is an opinionated Nuget package with the intention of being reusable across multiple ShipitSmarter projects and SDK's.
 
-Specific documentation and usage of the library can be found [here](src/ShipItSmarter.Core/Readme.md)
+Specific documentation and usage of the library can be found [here](src/ShipItSmarter.Core/README.md)
 
 ## Features
 * Exceptions

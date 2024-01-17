@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace ShipitSmarter.Core.Exceptions;
+﻿namespace ShipitSmarter.Core.Exceptions;
 
 /// <summary>
 /// An exception that can be used when something conflicts with the current state of things
@@ -14,6 +12,6 @@ public class ConflictException : DomainException
     /// <param name="message">The message that describes the error.</param>
     public ConflictException(string message) : base(message)
     {
-        StatusCode = StatusCodes.Status409Conflict;
+        StatusCode = 409; // StatusCodes.Status409Conflict;
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace ShipitSmarter.Core.Implementations;
+namespace ShipitSmarter.Core.AspNet.Implementations;
 
 /// <summary>
 /// ExceptionHandler that will return a ProblemDetails response

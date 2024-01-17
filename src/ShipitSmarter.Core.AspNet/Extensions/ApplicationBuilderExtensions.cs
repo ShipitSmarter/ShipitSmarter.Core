@@ -1,7 +1,7 @@
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using ShipitSmarter.Core.Implementations;
+using ShipitSmarter.Core.AspNet.Implementations;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.AspNetCore.Builder;

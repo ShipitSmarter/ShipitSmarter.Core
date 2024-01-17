@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using ShipitSmarter.Core.Constants;
 
-namespace ShipitSmarter.Core.Filters;
+namespace ShipitSmarter.Core.AspNet.Filters;
 
 /// <summary>
 /// An <see cref="IStartupFilter"/> that logs the <see cref="ILoggableSettings"/> objects to Console.Out on app startup

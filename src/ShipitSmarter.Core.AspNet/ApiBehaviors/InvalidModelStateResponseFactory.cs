@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ShipitSmarter.Core.ApiBehaviors;
+namespace ShipitSmarter.Core.AspNet.ApiBehaviors;
 
 
 /// <summary>
