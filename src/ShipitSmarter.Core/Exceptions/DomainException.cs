@@ -23,15 +23,8 @@ public abstract class DomainException : Exception
     /// </summary>
     public string? Detail { get; protected set; }
     
-    /// <summary>
-    /// Gets the <see cref="IDictionary{TKey, TValue}"/> for extension members.
-    /// <param>Problem type definitions MAY extend the problem details object with additional members. Extension members appear in the same namespace as other members of a problem type.</param>
-    /// </summary>
-    /// <remarks>
-    /// The round-tripping behavior for <see cref="Extensions"/> is determined by the implementation of the Input \ Output formatters.
-    /// In particular, complex types or collection types may not round-trip to the original type when using the built-in JSON or XML formatters.
-    /// </remarks>
-    public Dictionary<string, object> Extensions { get; } = new();
+    /// <inheritdoc cref="Error"/>
+    public List<Error> Errors { get; } = new();
 
     /// <summary>
     /// Instantiates a new instance of a <exception cref="DomainException"></exception>

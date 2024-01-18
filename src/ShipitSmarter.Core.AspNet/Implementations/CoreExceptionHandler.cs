@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using ShipitSmarter.Core.Models.v1;
 
 namespace ShipitSmarter.Core.AspNet.Implementations;
 
@@ -32,7 +33,7 @@ public class CoreExceptionHandler
         return Task.CompletedTask;
     }
     
-    private static ProblemDetails WrapException(ILogger logger, Exception exception, ProblemDetailsWrapper wrapper)
+    private static CoreProblemDetails WrapException(ILogger logger, Exception exception, ProblemDetailsWrapper wrapper)
     {
         logger.LogError(exception, exception.Message);
         try
