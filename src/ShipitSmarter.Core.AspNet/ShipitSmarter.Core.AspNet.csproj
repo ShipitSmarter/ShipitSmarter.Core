@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <Nullable>enable</Nullable>
+        <Version>0.0.1-alpha.1</Version>
+        <PackageId>ShipitSmarter.Core.AspNet</PackageId>
+        <Title>ShipitSmarter.Core.AspNet</Title>
+        <Authors>ShipItSmarter</Authors>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/ShipitSmarter/ShipItSmarter.Core</PackageProjectUrl>
+        <Description>A set of aspnet functionalities used across ShipItSmarter SDK and functionalities</Description>
+        <PackageTags>ShipitSmarter, Core, AspNet</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DocumentationFile>bin\Debug\ShipitSmarter.Core.AspNet.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\ShipitSmarter.Core.AspNet.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../../README.md" Pack="true" PackagePath="/">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ShipitSmarter.Core\ShipitSmarter.Core.csproj" />
+    </ItemGroup>
+    
+
+</Project>

@@ -1,9 +1,8 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using ShipitSmarter.Core.Constants;
 
-namespace ShipitSmarter.Core.Filters;
+namespace ShipitSmarter.Core.AspNet.Filters;
 
 /// <summary>
 /// An <see cref="IStartupFilter"/> that logs the <see cref="ILoggableSettings"/> objects to Console.Out on app startup
@@ -14,6 +13,7 @@ namespace ShipitSmarter.Core.Filters;
 public class SettingsLoggerStartupFilter : IStartupFilter
 {
     private readonly IEnumerable<ILoggableSettings> _settingsToLog;
+    private readonly JsonSerializerOptions _serializerOptions = new(JsonSerializerDefaults.Web);
 
     /// <see cref="SettingsLoggerStartupFilter"/>
     public SettingsLoggerStartupFilter(IEnumerable<ILoggableSettings> settingsToLog)
@@ -26,7 +26,7 @@ public class SettingsLoggerStartupFilter : IStartupFilter
     {
         foreach (var setting in _settingsToLog)
         {
-            var json = JsonSerializer.Serialize((object)setting, JsonSerializationConstants.Options); // cast to Object otherwise serialize returns nothing
+            var json = JsonSerializer.Serialize((object)setting, _serializerOptions); // cast to Object otherwise serialize returns nothing
             Console.WriteLine($"Setting {setting.GetType().Name}: {json}");
         }
 

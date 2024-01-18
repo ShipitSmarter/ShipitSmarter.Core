@@ -9,13 +9,13 @@ public class Globber : IGlobPattern
     public IEnumerable<string> GetAbsoluteFilePathsFromGlobPattern(string absolutePath, params string[] globPatterns)
     {
         var matches = GetPatternMatchingResult(absolutePath, globPatterns);
-        return matches.Files.Select(file => Path.Join(absolutePath, file.Path));
+        return matches.Files.Select(file => Path.Combine(absolutePath, file.Path));
     }
     
     public IEnumerable<string> GetRelativeFilePathsFromGlobPattern(string relativePath, string absolutePath, params string[] globPatterns)
     {
         var matches = GetPatternMatchingResult(absolutePath, globPatterns);
-        return matches.Files.Select(file => Path.Join(relativePath, file.Path));
+        return matches.Files.Select(file => Path.Combine(relativePath, file.Path));
     }
     
     private static PatternMatchingResult GetPatternMatchingResult(string absolutePath, params string[] globPatterns)

@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShipitSmarter.Core.Exceptions;
+using ShipitSmarter.Core.Models.v1;
 
-namespace ShipitSmarter.Core.Implementations;
+namespace ShipitSmarter.Core.AspNet.Implementations;
 
 /// <summary>
-/// Factory to wrap a an exception into a <see cref="ProblemDetails"/>
+/// Factory to wrap a an exception into a <see cref="CoreProblemDetails"/>
 /// </summary>
 // ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
 public class ProblemDetailsWrapper
@@ -13,7 +14,7 @@ public class ProblemDetailsWrapper
     /// <summary>
     /// Default ProblemDetails for exceptions that is not mapped
     /// </summary>
-    public static ProblemDetails Default() => new()
+    public static CoreProblemDetails Default() => new()
     {
         Title = "Something unexpected happened",
         Status = StatusCodes.Status500InternalServerError
@@ -29,7 +30,7 @@ public class ProblemDetailsWrapper
     /// <remarks>
     /// When inheriting this class and overriding this method, always have a fallback that calls base.Wrap(exception).
     /// </remarks>
-    public virtual ProblemDetails Wrap(Exception exception)
+    public virtual CoreProblemDetails Wrap(Exception exception)
     {
         return exception switch
         {
@@ -38,19 +39,15 @@ public class ProblemDetailsWrapper
         };
     }
 
-    private static ProblemDetails WrapInProblemDetails(DomainException domainException)
+    private static CoreProblemDetails WrapInProblemDetails(DomainException domainException)
     {
-        var problemDetails = new ProblemDetails
+        var problemDetails = new CoreProblemDetails
         {
             Title = domainException.Title,
             Detail = domainException.Detail,
-            Status = domainException.StatusCode
+            Status = domainException.StatusCode,
+            Errors = domainException.Errors
         };
-        foreach (var kv in domainException.Extensions)
-        {
-            problemDetails.Extensions.Add(kv.Key, kv.Value);
-        }
-
         return problemDetails;
     }
 }

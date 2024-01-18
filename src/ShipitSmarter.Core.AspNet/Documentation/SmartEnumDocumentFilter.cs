@@ -4,7 +4,7 @@ using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace ShipitSmarter.Core.Documentation;
+namespace ShipitSmarter.Core.AspNet.Documentation;
 
 /// <summary>
 /// Apply special swagger doc treatment for SmartEnum types

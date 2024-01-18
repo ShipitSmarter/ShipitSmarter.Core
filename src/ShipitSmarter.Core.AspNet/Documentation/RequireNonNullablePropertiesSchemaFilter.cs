@@ -1,7 +1,7 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace ShipitSmarter.Core.Documentation;
+namespace ShipitSmarter.Core.AspNet.Documentation;
 
 /// <summary>
 /// Filter to add to model.Required all properties where Nullable is false.

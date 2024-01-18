@@ -1,5 +1,5 @@
 using System.Text.Json;
-using ShipitSmarter.Core.Converters;
+using ShipitSmarter.Core.Serialization.Converters;
 
 namespace ShipitSmarter.Core.Tests.Converters;
 

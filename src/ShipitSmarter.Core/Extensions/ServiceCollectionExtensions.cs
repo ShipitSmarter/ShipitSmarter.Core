@@ -1,9 +1,6 @@
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using ShipitSmarter.Core;
-using ShipitSmarter.Core.Filters;
-using ShipitSmarter.Core.Implementations;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
@@ -33,13 +30,5 @@ public static class ServiceCollectionExtensions
             services.AddSingleton<ILoggableSettings>(resolver => (ILoggableSettings)resolver.GetRequiredService<IOptions<TSettings>>().Value);
         }
         return services;
-    }
-
-    /// <summary>
-    /// Add an <see cref="IStartupFilter"/> to the application that logs all registered <see cref="ILoggableSettings"/> objects
-    /// </summary>
-    public static IServiceCollection AddSettingsLogging(this IServiceCollection services)
-    {
-        return services.AddTransient<IStartupFilter, SettingsLoggerStartupFilter>();
     }
 }

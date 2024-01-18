@@ -1,7 +1,7 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace ShipitSmarter.Core.Documentation;
+namespace ShipitSmarter.Core.AspNet.Documentation;
 
 /// <summary>
 /// Updates the API documentation for any Dictionary&lt;Enum, TValue&gt; fields to show the enum values as possible keys

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 
-namespace ShipitSmarter.Core.Middlewares;
+namespace ShipitSmarter.Core.AspNet.Middlewares;
 
 /// <summary>
 /// Middleware to correlate requests (reads the correlation id from the header, or adds on if it doesn't exist.
@@ -11,7 +11,7 @@ namespace ShipitSmarter.Core.Middlewares;
 /// </code>
 public class CorrelationMiddleware
 {
-    private const string _correlationIdHeaderName = "x-correlation-id";
+    private const string CorrelationIdHeaderName = "x-correlation-id";
     
     private readonly RequestDelegate _next;
 
@@ -34,7 +34,7 @@ public class CorrelationMiddleware
     private Guid GetOrCreateCorrelationId(HttpRequest request)
     {
         var headers = request.Headers.ToDictionary(k => k.Key.ToLowerInvariant(), v => v.Value);
-        if (headers.TryGetValue(_correlationIdHeaderName, out var correlationHeaders)
+        if (headers.TryGetValue(CorrelationIdHeaderName, out var correlationHeaders)
             && Guid.TryParse(correlationHeaders.FirstOrDefault(), out var correlationGuid)
             && correlationGuid != Guid.Empty)
         {
@@ -45,7 +45,7 @@ public class CorrelationMiddleware
 
         // Adding back to request headers as exception handling controller is technically a new scope.
         // This ensures the same correlation id is used for errors
-        request.Headers[_correlationIdHeaderName] = correlationId.ToString();
+        request.Headers[CorrelationIdHeaderName] = correlationId.ToString();
 
         return correlationId;
     }
