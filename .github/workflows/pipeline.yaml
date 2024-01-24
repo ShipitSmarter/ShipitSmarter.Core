@@ -12,21 +12,52 @@ concurrency:
   group: ${{ github.head_ref || github.run_id }}-build
   cancel-in-progress: true
 
-permissions:
-  id-token: write
-  contents: write
-  checks: write
-  issues: read
-  pull-requests: write
-  actions: write
-
 jobs:
   build:
     name: Publish
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ShipitSmarter/actions/initialise@main
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Needed for gitversion
+          
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.15
+        with:
+          versionSpec: '5.x'
+          
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v0.9.15
+        with:
+          useConfigFile: true
+      
+      - name: Determine SIS_VERSION
+        shell: bash
+        run: |
+          datetime=$(date +"%+4Y%m%d%H%M%S")
+          if [[ '${{ github.ref_name }}' == 'main' ]]
+          then
+            version="${{ env.GitVersion_MajorMinorPatch }}"
+            if [[ $(git tag -l "v$version") ]]
+            then
+              newPatch=$((${{ env.GitVersion_Patch }} + 1))
+              version="${{ env.GitVersion_Major }}.${{ env.GitVersion_Minor }}.$newPatch"
+            fi
+          elif [[ '${{ github.event_name}}' == 'pull_request' ]]
+          then
+            sha=${{ github.event.pull_request.head.sha }}
+            shortsha=${sha:0:7}
+            version="${{ env.GitVersion_MajorMinorPatch }}-${datetime}.pr${{ github.event.pull_request.number }}.sha-${shortsha}"
+          else
+            branch=$(echo '${{ github.ref_name}}' | tr /_ - )
+            sha=${{ github.sha }}
+            shortsha=${sha:0:7}
+            version="${{ env.GitVersion_MajorMinorPatch }}-${datetime}.${branch}.sha-${shortsha}"
+          fi
+          echo $version
+          echo "SIS_VERSION=${version}" >> "$GITHUB_ENV"
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
