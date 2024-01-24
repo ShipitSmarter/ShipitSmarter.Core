@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using ShipitSmarter.Core.Attributes;
 using ShipitSmarter.Core.Exceptions;
 
 namespace ShipitSmarter.Core.Models.v1;
@@ -6,13 +7,13 @@ namespace ShipitSmarter.Core.Models.v1;
 /// <summary>
 /// A date range given in local datetime (without timezone information)
 /// </summary>
-public class LocalDateRange(DateTimeOffset start)
+public class LocalDateRange()
 {
     /// <summary>
     /// The start of the date range
     /// </summary>
-    [Required]
-    public DateTimeOffset Start { get; set; } = start;
+    [RequiredNotDefault]
+    public DateTimeOffset Start { get; set; } = Defaults.DateTimeOffset;
 
     private DateTimeOffset? _end;
 

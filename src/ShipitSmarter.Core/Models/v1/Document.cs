@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using ShipitSmarter.Core.Attributes;
 
 namespace ShipitSmarter.Core.Models.v1;
 
@@ -6,25 +7,25 @@ namespace ShipitSmarter.Core.Models.v1;
 /// Document
 /// </summary>
 [Serializable]
-public abstract class Document(string fileExtension, string fileName, string fileContent)
+public class Document()
 {
     /// <summary>
     /// The extension of the file, e.g. "pdf"
     /// </summary>
     /// <example>"pdf"</example>
-    [Required(AllowEmptyStrings = false)]
-    public string FileExtension { get; set; } = fileExtension;
+    [RequiredNotDefault]
+    public string FileExtension { get; set; } = Defaults.String;
 
     /// <summary>
     /// The name of the file, e.g. "my-file.pdf"
     /// </summary>
     /// <example>"my-file.pdf"</example>
-    [Required(AllowEmptyStrings = false)]
-    public string FileName { get; set; } = fileName;
+    [RequiredNotDefault]
+    public string FileName { get; set; } = Defaults.String;
 
     /// <summary>
     /// The byte content of the file encoded in base64
     /// </summary>
-    [Required(AllowEmptyStrings = false)]
-    public string FileContent { get; set; } = fileContent;
+    [RequiredNotDefault]
+    public string FileContent { get; set; } = Defaults.String;
 }

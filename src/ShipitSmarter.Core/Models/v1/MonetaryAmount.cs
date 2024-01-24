@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using ShipitSmarter.Core.Attributes;
 using ShipitSmarter.Core.Enumerations.v1;
 
 namespace ShipitSmarter.Core.Models.v1;
@@ -6,17 +7,17 @@ namespace ShipitSmarter.Core.Models.v1;
 /// <summary>
 /// Defines a monetary amount in a given currency
 /// </summary>
-public class MonetaryAmount(decimal value, CurrencyCode currencyCode)
+public class MonetaryAmount
 {
     /// <summary>
     /// The value of the monetary amount in the given currency
     /// </summary>
-    [Required]
-    public decimal Value { get; set; } = value;
+    [RequiredNotDefault]
+    public decimal Value { get; set; } = Defaults.Decimal;
 
     /// <summary>
     /// The currency code
     /// </summary>
-    [Required]
-    public CurrencyCode CurrencyCode { get; set; } = currencyCode;
+    [RequiredNotDefault]
+    public CurrencyCode CurrencyCode { get; set; } = Defaults.CurrencyCode;
 }
