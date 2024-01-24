@@ -28,7 +28,7 @@ public enum Incoterm
     /// <summary>
     /// Delivered At Terminal (named terminal at port or place of destination, replaced by DPU in incoterms 2020)
     /// </summary>
-    DAT,
+    DAT, 
 
     /// <summary>
     /// Delivered At Place (named place of destination)
