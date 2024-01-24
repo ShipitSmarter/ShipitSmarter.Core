@@ -13,6 +13,11 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
+  id-token: write
+  contents: write
+  checks: write
+  issues: read
+  pull-requests: write
   actions: write
 
 jobs:
