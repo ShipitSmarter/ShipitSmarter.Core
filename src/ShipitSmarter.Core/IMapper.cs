@@ -1,3 +1,5 @@
+namespace ShipitSmarter.Core;
+
 /// <summary>
 /// Maps an object from <typeparamref name="TSource"/> to <typeparamref name="TDest"/>
 /// </summary>
