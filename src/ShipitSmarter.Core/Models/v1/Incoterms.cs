@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using ShipitSmarter.Core.Attributes;
 using ShipitSmarter.Core.Enumerations.v1;
 
 namespace ShipitSmarter.Core.Models.v1;
@@ -12,14 +13,14 @@ public class Incoterms
     /// <summary>
     /// Describes the scope of the incoterm
     /// </summary>
-    [Required]
-    public IncotermScope Scope { get; set; }
+    [RequiredNotDefault]
+    public IncotermScope Scope { get; set; } = (IncotermScope)Defaults.Enum;
 
     /// <summary>
     /// Any of the Incoterms as released in 2000,2010,2020
     /// </summary>
-    [Required]
-    public Incoterm Incoterm { get; set; }
+    [RequiredNotDefault]
+    public Incoterm Incoterm { get; set; } = (Incoterm)Defaults.Enum;
 
     /// <summary>
     /// The Named Place that applies to the incoterm

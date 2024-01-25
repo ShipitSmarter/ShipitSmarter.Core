@@ -3,7 +3,7 @@ namespace ShipitSmarter.Core.Enumerations.Shipment.v1;
 /// <summary>
 /// Relation type of account
 /// </summary>
-public enum RelationType
+public enum ShipmentRelationType
 {
     /// <summary>
     /// Sender of shipment

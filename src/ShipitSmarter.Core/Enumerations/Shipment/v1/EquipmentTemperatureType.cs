@@ -3,7 +3,7 @@ namespace ShipitSmarter.Core.Enumerations.Shipment.v1;
 /// <summary>
 /// Describes the temperature under which the shipment should be transported in case of temperature sensitive goods.
 /// </summary>
-public enum EquipmentTemperature
+public enum EquipmentTemperatureType
 {
     /// <summary>
     /// Ambient: +15 to +25 Celsius
