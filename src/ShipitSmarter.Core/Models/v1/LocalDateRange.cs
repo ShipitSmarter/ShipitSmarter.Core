@@ -13,14 +13,14 @@ public class LocalDateRange()
     /// The start of the date range
     /// </summary>
     [RequiredNotDefault]
-    public DateTimeOffset Start { get; set; } = Defaults.DateTimeOffset;
+    public DateTime Start { get; set; } = Defaults.DateTime;
 
-    private DateTimeOffset? _end;
+    private DateTime? _end;
 
     /// <summary>
     /// The end of the date range
     /// </summary>
-    public DateTimeOffset? End
+    public DateTime? End
     {
         get => _end;
         set
