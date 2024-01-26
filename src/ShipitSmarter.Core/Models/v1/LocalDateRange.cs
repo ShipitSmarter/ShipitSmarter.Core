@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using ShipitSmarter.Core.Attributes;
+using ShipitSmarter.Core.DataAnnotations;
 using ShipitSmarter.Core.Exceptions;
 
 namespace ShipitSmarter.Core.Models.v1;

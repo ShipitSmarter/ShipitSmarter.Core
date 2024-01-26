@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using ShipitSmarter.Core.Enumerations.HandlingUnit.v1;
 using ShipitSmarter.Core.Enumerations.v1;
 
-namespace ShipitSmarter.Core.Attributes;
+namespace ShipitSmarter.Core.DataAnnotations;
 
 /// <inheritdoc cref="RequiredAttribute"/>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter,

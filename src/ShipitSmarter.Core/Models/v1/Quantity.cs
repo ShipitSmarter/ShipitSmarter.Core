@@ -1,5 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-using ShipitSmarter.Core.Attributes;
+using ShipitSmarter.Core.DataAnnotations;
 using ShipitSmarter.Core.Enumerations.v1;
 
 namespace ShipitSmarter.Core.Models.v1;
