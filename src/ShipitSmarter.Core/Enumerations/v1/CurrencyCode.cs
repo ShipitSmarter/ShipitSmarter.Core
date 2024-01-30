@@ -196,10 +196,11 @@ public class CurrencyCode : SmartEnum<CurrencyCode, string>
     // ReSharper enable InconsistentNaming
 
     public int NrOfDecimals { get; }
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
-
+    
+    public static implicit operator string(CurrencyCode currencyCode) => currencyCode.Name;
     private CurrencyCode(string name, string value, int nrOfDecimals) : base(name, value)
     {
         NrOfDecimals = nrOfDecimals;
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }
