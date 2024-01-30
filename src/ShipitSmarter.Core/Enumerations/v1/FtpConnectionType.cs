@@ -6,7 +6,7 @@ namespace ShipitSmarter.Core.Enumerations.v1;
 /// <summary>
 /// Types of FTP connections allowed by FTP Uploader
 /// </summary>
-[JsonConverter(typeof(SmartEnumNameConverter<CountryCode, string>))]
+[JsonConverter(typeof(SmartEnumNameConverter<FtpConnectionType, string>))]
 public sealed class FtpConnectionType : SmartEnum<FtpConnectionType, string>
 {
     // NOTE: this enum is a SmartEnum, because conversion from/to yaml of enum values in capitals does not work well if
