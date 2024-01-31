@@ -9,6 +9,7 @@ public enum SignatureForDelivery
     /// <summary>
     /// No requirement on signature
     /// </summary>
+    [Obsolete]
     None,
     /// <summary>
     /// Signature of person where shipment is addressed to (Y)
