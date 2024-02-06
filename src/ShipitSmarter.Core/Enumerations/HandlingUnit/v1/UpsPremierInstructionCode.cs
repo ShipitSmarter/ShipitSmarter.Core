@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Ardalis.SmartEnum;
 
 namespace ShipitSmarter.Core.Enumerations.HandlingUnit.v1;
@@ -5,6 +6,7 @@ namespace ShipitSmarter.Core.Enumerations.HandlingUnit.v1;
 /// <summary>
 /// Instruction code for the Ups Premier service level associated with the handling unit
 /// </summary>
+[JsonConverter(typeof(SmartEnumNameConverter<UpsPremierInstructionCode, string>))]
 public sealed class UpsPremierInstructionCode : SmartEnum<UpsPremierInstructionCode, string>
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
