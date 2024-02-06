@@ -17,6 +17,5 @@ public static class Defaults
     public static readonly CountryCode CountryCode = CountryCode.DEFAULT;
     public static readonly CurrencyCode CurrencyCode = CurrencyCode.DEFAULT;
     public static readonly PackageType PackageType = PackageType.DEFAULT;
-    public static readonly UpsPremierInstructionCode UpsPremierInstructionCode = UpsPremierInstructionCode.DEFAULT;
 }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
