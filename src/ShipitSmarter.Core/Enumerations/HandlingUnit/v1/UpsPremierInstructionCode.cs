@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Ardalis.SmartEnum;
 
 namespace ShipitSmarter.Core.Enumerations.HandlingUnit.v1;
@@ -5,6 +6,7 @@ namespace ShipitSmarter.Core.Enumerations.HandlingUnit.v1;
 /// <summary>
 /// Instruction code for the Ups Premier service level associated with the handling unit
 /// </summary>
+[JsonConverter(typeof(SmartEnumNameConverter<UpsPremierInstructionCode, string>))]
 public sealed class UpsPremierInstructionCode : SmartEnum<UpsPremierInstructionCode, string>
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -23,13 +25,12 @@ public sealed class UpsPremierInstructionCode : SmartEnum<UpsPremierInstructionC
     public static readonly UpsPremierInstructionCode U012 = new("012", "Hold for Will Call");
     public static readonly UpsPremierInstructionCode U014 = new("014", "Contact UPS Premier Control Tower");
     public static readonly UpsPremierInstructionCode U015 = new("015", "Upgrade to Weekend Delivery (if not delivered Friday)");
-
-    // Additional for default. Note: Validation will FAIL if this is used
-    public static readonly UpsPremierInstructionCode DEFAULT = new("DEFAULT", "DEFAULT");
     // ReSharper enable InconsistentNaming
 
     private UpsPremierInstructionCode(string name, string value) : base(name, value)
     {
     }
+    
+    public static implicit operator string(UpsPremierInstructionCode upsPremierInstructionCode) => upsPremierInstructionCode.Name;
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member    
 }

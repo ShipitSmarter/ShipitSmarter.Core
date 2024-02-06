@@ -17,8 +17,7 @@ public sealed class FtpConnectionType : SmartEnum<FtpConnectionType, string>
     public static readonly FtpConnectionType SFTP = new(nameof(SFTP), "SSH File Transfer Protocol");
     public static readonly FtpConnectionType FTPS = new(nameof(FTPS), "Secure File Transfer Protocol");
     // ReSharper enable InconsistentNaming
-    public string TwoLetterCode => Name;
-
+    
     private FtpConnectionType(string name, string value) : base(name, value)
     {
     }
