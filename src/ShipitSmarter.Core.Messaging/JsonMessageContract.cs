@@ -9,7 +9,7 @@ namespace ShipitSmarter.Core.Messaging;
 public class JsonMessageContract<TMessage> : IMessageContract<TMessage>
     where TMessage : JsonMessageContract<TMessage>
 {
-    public string Subject => typeof(TMessage).FullName!;
+    public static string Subject => typeof(TMessage).FullName!;
 
     public static TMessage Deserialize(Message message)
     {

@@ -7,7 +7,7 @@ public interface IMessageContract<TMessage>
     /// <summary>
     /// The subject applied to messages for this contract.
     /// </summary>
-    string Subject { get; }
+    static abstract string Subject { get; }
 
     /// <summary>
     /// Deserializes the received message to <typeparamref name="TMessage"/>.

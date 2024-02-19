@@ -8,7 +8,7 @@ public class Message
     /// <summary>
     /// Unique identifier of this message.
     /// </summary>
-    public Guid Id { get; set; }
+    public string Id { get; set; } = string.Empty;
     /// <summary>
     /// The subject of the message. Tells the receiver how to handle this message.
     /// </summary>
