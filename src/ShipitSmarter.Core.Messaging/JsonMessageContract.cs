@@ -11,15 +11,15 @@ public class JsonMessageContract<TMessage> : IMessageContract<TMessage>
 {
     public string Subject => typeof(TMessage).FullName!;
 
-    public TMessage Deserialize(Message message)
+    public static TMessage Deserialize(Message message)
     {
         return JsonSerializer.Deserialize<TMessage>(message.Data)
             ?? throw new MessageException($"{nameof(Message.Data)} cannot be null");
     }
 
-    public Message Serialize(TMessage data)
+    public Message Serialize()
     {
-        var json = JsonSerializer.SerializeToUtf8Bytes(data);
+        var json = JsonSerializer.SerializeToUtf8Bytes((TMessage)this);
         var msg = new Message(Subject, json);
 
         msg.Attributes.Add("Content-Type", "application/json");

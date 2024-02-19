@@ -7,18 +7,18 @@ public interface IMessageContract<TMessage>
     /// <summary>
     /// The subject applied to messages for this contract.
     /// </summary>
-    public string Subject { get; }
+    string Subject { get; }
 
     /// <summary>
     /// Deserializes the received message to <typeparamref name="TMessage"/>.
     /// </summary>
     /// <param name="message">The received message.</param>
     /// <returns>The message data as <typeparamref name="TMessage"/>.</returns>
-    TMessage Deserialize(Message message);
+    static abstract TMessage Deserialize(Message message);
     /// <summary>
     /// Serializes the data and creates a <see cref="Message"/> to send.
     /// </summary>
     /// <param name="data">The data that will be serialized.</param>
     /// <returns>A <see cref="Message"/>.</returns>
-    Message Serialize(TMessage data);
+    Message Serialize();
 }
