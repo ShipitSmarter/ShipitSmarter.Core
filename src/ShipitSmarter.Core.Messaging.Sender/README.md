@@ -27,4 +27,6 @@ Register the client:
 services.AddGooglePublisherClient("project-id", "topic-id");
 ```
 
+You'll also need to have an implementation of `ICorrelator` registered.
+
 Use the client as `ISender`.

@@ -4,7 +4,7 @@ Defines interfaces and implementations for receiving messages.
 
 ## `IMessageHandler`
 
-The client will require an implementation of the `IMessageHandler`. The recommended way of implementing this interface is a switch case statement based on the `Message.Subject`:
+The client will require an implementation of the `IMessageHandler`. The recommended way of implementing this interface is by creating a control flow based on the `Message.Subject`:
 
 ```csharp
 public class MessageHandler : IMessageHandler
@@ -14,15 +14,15 @@ public class MessageHandler : IMessageHandler
     )
 
     public Task Handle(Message message) {
-        switch (message.Subject) {
-            case MyMessage.Subject:
-                var myMessage = MyMessage.Deserialize(message);
-                await myMessageHandler.Handle(myMessage);
-            case MyOtherMessage.Subject:
-                var myOtherMessage = MyOtherMessage.Deserialize(message);
-                await myOtherMessageHandler.Handle(myOtherMessage);
-            ...
+        if (MyMessage.Subject == message.Subject) {
+            var myMessage = MyMessage.Deserialize(message);
+            return myMessageHandler.Handle(myMessage);
         }
+        if (MyOtherMessage.Subject == message.Subject) {
+            var myOtherMessage = MyOtherMessage.Deserialize(message);
+            return myOtherMessageHandler.Handle(myOtherMessage);
+        }
+        ...
     }
 }
 ```
