@@ -27,4 +27,9 @@
     <PackageTags>ShipitSmarter, Core, Messaging, Events, Commands</PackageTags>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
