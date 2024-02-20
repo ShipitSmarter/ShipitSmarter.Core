@@ -1,5 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core", "src\ShipitSmarter.Core\ShipitSmarter.Core.csproj", "{E8F24E60-69AF-4EDE-B9C2-CA59748977F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Tests", "test\ShipitSmarter.Core.Tests\ShipitSmarter.Core.Tests.csproj", "{2E49D658-A526-406C-AE0E-A3440E6BDCE5}"
@@ -19,6 +20,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{89A28477-7590-4A12-8243-B79658065A35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Tests", "test\ShipitSmarter.Core.Messaging.Tests\ShipitSmarter.Core.Messaging.Tests.csproj", "{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Sender.Tests", "test\ShipitSmarter.Core.Messaging.Sender.Tests\ShipitSmarter.Core.Messaging.Sender.Tests.csproj", "{31210A04-1DD5-496F-BBC9-14052A787FFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,11 +61,16 @@ Global
 		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31210A04-1DD5-496F-BBC9-14052A787FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31210A04-1DD5-496F-BBC9-14052A787FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31210A04-1DD5-496F-BBC9-14052A787FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31210A04-1DD5-496F-BBC9-14052A787FFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{44B827A0-0E5B-487D-AE1B-7A837815E086} = {63E59879-A847-4DD2-98B4-6111724AF14E}
 		{9229514A-73CA-458F-B4E2-9EEF993FECF7} = {63E59879-A847-4DD2-98B4-6111724AF14E}
 		{5F24E333-F5B0-45FB-9591-87721F35F9CA} = {63E59879-A847-4DD2-98B4-6111724AF14E}
 		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255} = {89A28477-7590-4A12-8243-B79658065A35}
+		{31210A04-1DD5-496F-BBC9-14052A787FFC} = {89A28477-7590-4A12-8243-B79658065A35}
 	EndGlobalSection
 EndGlobal
