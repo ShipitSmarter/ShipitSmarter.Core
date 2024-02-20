@@ -39,4 +39,9 @@ public enum PickupPolicy
     /// Customer can return its shipment to a service point of the carrier
     /// </summary>
     SERVICEPOINT,
+    
+    /// <summary>
+    /// Carrier e-mails an electronic return label or a link to a label
+    /// </summary>
+    ERL,
 }
