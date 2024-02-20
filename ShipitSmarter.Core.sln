@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messagin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Receiver", "src\ShipitSmarter.Core.Messaging.Receiver\ShipitSmarter.Core.Messaging.Receiver.csproj", "{5F24E333-F5B0-45FB-9591-87721F35F9CA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{89A28477-7590-4A12-8243-B79658065A35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Tests", "test\ShipitSmarter.Core.Messaging.Tests\ShipitSmarter.Core.Messaging.Tests.csproj", "{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,10 +54,15 @@ Global
 		{5F24E333-F5B0-45FB-9591-87721F35F9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F24E333-F5B0-45FB-9591-87721F35F9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F24E333-F5B0-45FB-9591-87721F35F9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{44B827A0-0E5B-487D-AE1B-7A837815E086} = {63E59879-A847-4DD2-98B4-6111724AF14E}
 		{9229514A-73CA-458F-B4E2-9EEF993FECF7} = {63E59879-A847-4DD2-98B4-6111724AF14E}
 		{5F24E333-F5B0-45FB-9591-87721F35F9CA} = {63E59879-A847-4DD2-98B4-6111724AF14E}
+		{4D871CE5-F60F-49B1-BE0F-3EB3E118A255} = {89A28477-7590-4A12-8243-B79658065A35}
 	EndGlobalSection
 EndGlobal
