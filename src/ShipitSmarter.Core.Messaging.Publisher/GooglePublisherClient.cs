@@ -2,9 +2,9 @@ using Google.Cloud.PubSub.V1;
 using Google.Protobuf;
 using Microsoft.Extensions.Logging;
 
-namespace ShipitSmarter.Core.Messaging.Sender;
+namespace ShipitSmarter.Core.Messaging.Publisher;
 
-public class GooglePublisherClient : ISender
+public class GooglePublisherClient : IPublisher
 {
     private readonly PublisherClient _publisher;
     private readonly ICorrelator _correlator;
@@ -21,7 +21,7 @@ public class GooglePublisherClient : ISender
         _logger = logger;
     }
 
-    public async Task Send<TMessage>(TMessage message)
+    public async Task Publish<TMessage>(TMessage message)
         where TMessage : IMessageContract<TMessage>
     {
         var serializedMessage = message.Serialize();

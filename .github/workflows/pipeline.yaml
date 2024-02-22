@@ -77,8 +77,8 @@ jobs:
           dotnet pack src/ShipitSmarter.Core.AspNet/ShipitSmarter.Core.AspNet.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.SIS_VERSION }}
           dotnet pack src/ShipitSmarter.Core.Serialization/ShipitSmarter.Core.Serialization.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.SIS_VERSION }}
           dotnet pack src/ShipitSmarter.Core.Messaging/ShipitSmarter.Core.Messaging.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.SIS_VERSION }}
-          dotnet pack src/ShipitSmarter.Core.Messaging.Receiver/ShipitSmarter.Core.Messaging.Receiver.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.SIS_VERSION }}
-          dotnet pack src/ShipitSmarter.Core.Messaging.Sender/ShipitSmarter.Core.Messaging.Sender.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.SIS_VERSION }}
+          dotnet pack src/ShipitSmarter.Core.Messaging.Subscriber/ShipitSmarter.Core.Messaging.Subscriber.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.SIS_VERSION }}
+          dotnet pack src/ShipitSmarter.Core.Messaging.Publisher/ShipitSmarter.Core.Messaging.Publisher.csproj  --no-build --configuration Release -p:PackageVersion=${{ env.SIS_VERSION }}
 
       - name: PushNuget
         run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.SHIPITSMARTER_CORE_NUGET_API_KEY }} --skip-duplicate

@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moq;
 
-namespace ShipitSmarter.Core.Messaging.Receiver.Tests;
+namespace ShipitSmarter.Core.Messaging.Subscriber.Tests;
 
 public class GoogleSubscriberClientTests
 {

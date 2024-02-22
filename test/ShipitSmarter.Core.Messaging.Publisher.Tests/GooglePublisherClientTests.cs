@@ -4,7 +4,7 @@ using Google.Cloud.PubSub.V1;
 using Microsoft.Extensions.Logging;
 using Moq;
 
-namespace ShipitSmarter.Core.Messaging.Sender.Tests;
+namespace ShipitSmarter.Core.Messaging.Publisher.Tests;
 
 public class GooglePublisherClientTests
 {
@@ -38,7 +38,7 @@ public class GooglePublisherClientTests
         );
 
         // Act
-        await client.Send(message);
+        await client.Publish(message);
 
         // Assert
         publisherMock.Verify(m => m.PublishAsync(It.IsAny<PubsubMessage>()), Times.Once());

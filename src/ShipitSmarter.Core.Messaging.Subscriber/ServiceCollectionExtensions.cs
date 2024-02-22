@@ -1,6 +1,6 @@
 using Google.Cloud.PubSub.V1;
 using ShipitSmarter.Core.Messaging;
-using ShipitSmarter.Core.Messaging.Receiver;
+using ShipitSmarter.Core.Messaging.Subscriber;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

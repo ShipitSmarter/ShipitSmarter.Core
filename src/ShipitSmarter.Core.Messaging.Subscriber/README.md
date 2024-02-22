@@ -1,4 +1,4 @@
-# ShipitSmarter.Core.Messaging.Receiver
+# ShipitSmarter.Core.Messaging.Subscriber
 
 Defines interfaces and implementations for receiving messages.
 

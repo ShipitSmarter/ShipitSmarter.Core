@@ -1,4 +1,4 @@
-namespace ShipitSmarter.Core.Messaging.Sender.Tests;
+namespace ShipitSmarter.Core.Messaging.Subscriber.Tests;
 
 public class TestJsonMessage : JsonMessageContract<TestJsonMessage>
 {

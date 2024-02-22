@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.PubSub.V1" Version="3.9.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -15,15 +16,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Version>0.0.1-alpha.1</Version>
-    <PackageId>ShipitSmarter.Core.Messaging.Sender</PackageId>
-    <Title>ShipitSmarter.Core.Messaging.Sender</Title>
+    <PackageId>ShipitSmarter.Core.Messaging.Subscriber</PackageId>
+    <Title>ShipitSmarter.Core.Messaging.Subscriber</Title>
     <Authors>ShipItSmarter</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/ShipitSmarter/ShipItSmarter.Core</PackageProjectUrl>
-    <Description>A set of core functionalities used across ShipItSmarter for message sending functionalities</Description>
-    <PackageTags>ShipitSmarter, Core, Messaging, Events, Commands</PackageTags>
+    <Description>A set of core functionalities used across ShipItSmarter for message receiving functionalities</Description>
+    <PackageTags>ShipitSmarter, Core, Messaging, Events, Commands, Subscription, Subscriber</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

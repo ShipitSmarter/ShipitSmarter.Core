@@ -1,13 +1,13 @@
 using Google.Cloud.PubSub.V1;
 using ShipitSmarter.Core.Messaging;
-using ShipitSmarter.Core.Messaging.Sender;
+using ShipitSmarter.Core.Messaging.Publisher;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ServiceCollectionExtensions
 {
     /// <summary>
-    /// Registers a <see cref="GooglePublisherClient"/> as <see cref="ISender"/>.
+    /// Registers a <see cref="GooglePublisherClient"/> as <see cref="IPublisher"/>.
     /// </summary>
     /// <param name="projectId">The id of the Google project for the PubSub topic.</param>
     /// <param name="topicId">The id of the PubSub topic.</param>
@@ -21,7 +21,7 @@ public static class ServiceCollectionExtensions
         var topicName = TopicName.FromProjectTopic(projectId, topicId);
 
         services.AddPublisherClient(topicName);
-        services.AddScoped<ISender,GooglePublisherClient>();
+        services.AddScoped<IPublisher,GooglePublisherClient>();
 
         return services;
     }
