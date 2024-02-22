@@ -114,3 +114,27 @@ jobs:
           NUGET_PACKAGE: shipitsmarter.core.serialization # Full Package ID in lower case!
           VERSION_REGEX: ^\d.\d.\d+-pullrequest.* # Regex pattern to match version
           NUGET_KEY: ${{ secrets.SHIPITSMARTER_PACKAGE_DELETER }} # nuget.org API key
+
+      - name: Remove pull request versions of messaging package
+        if: github.ref_name == 'main'
+        uses: darenm/unlist-nuget@v1
+        with:
+          NUGET_PACKAGE: shipitsmarter.core.messaging # Full Package ID in lower case!
+          VERSION_REGEX: ^\d.\d.\d+-pullrequest.* # Regex pattern to match version
+          NUGET_KEY: ${{ secrets.SHIPITSMARTER_PACKAGE_DELETER }} # nuget.org API key
+
+      - name: Remove pull request versions of messaging.publisher package
+        if: github.ref_name == 'main'
+        uses: darenm/unlist-nuget@v1
+        with:
+          NUGET_PACKAGE: shipitsmarter.core.messaging.publisher # Full Package ID in lower case!
+          VERSION_REGEX: ^\d.\d.\d+-pullrequest.* # Regex pattern to match version
+          NUGET_KEY: ${{ secrets.SHIPITSMARTER_PACKAGE_DELETER }} # nuget.org API key
+
+      - name: Remove pull request versions of messaging.subscriber package
+        if: github.ref_name == 'main'
+        uses: darenm/unlist-nuget@v1
+        with:
+          NUGET_PACKAGE: shipitsmarter.core.messaging.subscriber # Full Package ID in lower case!
+          VERSION_REGEX: ^\d.\d.\d+-pullrequest.* # Regex pattern to match version
+          NUGET_KEY: ${{ secrets.SHIPITSMARTER_PACKAGE_DELETER }} # nuget.org API key
