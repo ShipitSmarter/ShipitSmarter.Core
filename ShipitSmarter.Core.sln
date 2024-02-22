@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{63E59879-A84
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging", "src\ShipitSmarter.Core.Messaging\ShipitSmarter.Core.Messaging.csproj", "{44B827A0-0E5B-487D-AE1B-7A837815E086}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Sender", "src\ShipitSmarter.Core.Messaging.Sender\ShipitSmarter.Core.Messaging.Sender.csproj", "{9229514A-73CA-458F-B4E2-9EEF993FECF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Publisher", "src\ShipitSmarter.Core.Messaging.Publisher\ShipitSmarter.Core.Messaging.Publisher.csproj", "{9229514A-73CA-458F-B4E2-9EEF993FECF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Subscriber", "src\ShipitSmarter.Core.Messaging.Subscriber\ShipitSmarter.Core.Messaging.Subscriber.csproj", "{5F24E333-F5B0-45FB-9591-87721F35F9CA}"
 EndProject
@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{89A28477-7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Tests", "test\ShipitSmarter.Core.Messaging.Tests\ShipitSmarter.Core.Messaging.Tests.csproj", "{4D871CE5-F60F-49B1-BE0F-3EB3E118A255}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Sender.Tests", "test\ShipitSmarter.Core.Messaging.Sender.Tests\ShipitSmarter.Core.Messaging.Sender.Tests.csproj", "{31210A04-1DD5-496F-BBC9-14052A787FFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Publisher.Tests", "test\ShipitSmarter.Core.Messaging.Publisher.Tests\ShipitSmarter.Core.Messaging.Publisher.Tests.csproj", "{31210A04-1DD5-496F-BBC9-14052A787FFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipitSmarter.Core.Messaging.Subscriber.Tests", "test\ShipitSmarter.Core.Messaging.Subscriber.Tests\ShipitSmarter.Core.Messaging.Subscriber.Tests.csproj", "{55BE7C49-983F-4E6F-8F9E-23079825DB76}"
 EndProject
