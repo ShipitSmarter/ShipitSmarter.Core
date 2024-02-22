@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ShipitSmarter.Core.Messaging.Receiver;
+namespace ShipitSmarter.Core.Messaging.Subscriber;
 
 public class GoogleSubscriberClient : BackgroundService
 {

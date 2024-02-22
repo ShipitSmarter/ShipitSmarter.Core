@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ShipitSmarter.Core.Messaging.Receiver\ShipitSmarter.Core.Messaging.Receiver.csproj" />
+    <ProjectReference Include="..\..\src\ShipitSmarter.Core.Messaging.Subscriber\ShipitSmarter.Core.Messaging.Subscriber.csproj" />
   </ItemGroup>
 
 </Project>
