@@ -24,7 +24,7 @@ public static class SwaggerDocHelper
         });
 
     /// <summary>
-    /// Add PAT header configuration for <see cref="SwaggerGenOptions"/> using AddSecurityDefinition and AddSecurityRequirement
+    /// Add PAT header security configuration for <see cref="SwaggerGenOptions"/> using AddSecurityDefinition and AddSecurityRequirement
     /// </summary>
     public static void AddPatSecurityConfiguration(this SwaggerGenOptions options)
     {
@@ -42,6 +42,29 @@ public static class SwaggerDocHelper
                     Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "pat" },
                 },
                 new List<string>()
+            }
+        });
+    }
+
+    /// <summary>
+    /// Add production server for specific API
+    /// </summary>
+    /// <param name="options"></param>
+    /// <param name="serviceSlug">The slug of the service, for example 'ftp-uploader'</param>
+    public static void AddProductionServer(this SwaggerGenOptions options, string serviceSlug)
+    {
+        options.AddServer(new OpenApiServer
+        {
+            Description = "The production API server",
+            Url = "https://{customername}.viya.me/api/" + serviceSlug,
+            Variables = new Dictionary<string, OpenApiServerVariable>
+            {
+                { "customername", new OpenApiServerVariable
+                    {
+                        Default = "demo",
+                        Description = "this value is assigned by the service provider, in this example `viya.me`"
+                    }
+                }
             }
         });
     }
