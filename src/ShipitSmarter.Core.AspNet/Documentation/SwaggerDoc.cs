@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -13,15 +14,17 @@ public static class SwaggerDocHelper
 {
 
     /// <summary>
-    /// Add this to <see cref="OpenApiInfo.Extensions"/> to display to Viya logo in redoc.
+    /// Adds the Viya logo in redoc.
     /// </summary>
-    public static KeyValuePair<string, OpenApiObject> ViyaLogo =
+    public static void AddViyaLogo(this Dictionary<string, IOpenApiExtension> extensions)
+    {
         // https://github.com/Redocly/redoc/blob/main/docs/redoc-vendor-extensions.md#logo-object
-        new("x-logo", new OpenApiObject
+        extensions.Add("x-logo", new OpenApiObject
         {
             { "url", new OpenApiString("https://viya.me/images/viya-logo.png") },
             { "altText", new OpenApiString("Viya logo") },
         });
+    }
 
     /// <summary>
     /// Add PAT header security configuration for <see cref="SwaggerGenOptions"/> using AddSecurityDefinition and AddSecurityRequirement
