@@ -16,7 +16,7 @@ public static class SwaggerDocHelper
     /// <summary>
     /// Adds the Viya logo in redoc.
     /// </summary>
-    public static void AddViyaLogo(this Dictionary<string, IOpenApiExtension> extensions)
+    public static Dictionary<string, IOpenApiExtension> WithViyaLogo(this Dictionary<string, IOpenApiExtension> extensions)
     {
         // https://github.com/Redocly/redoc/blob/main/docs/redoc-vendor-extensions.md#logo-object
         extensions.Add("x-logo", new OpenApiObject
@@ -24,6 +24,7 @@ public static class SwaggerDocHelper
             { "url", new OpenApiString("https://viya.me/images/viya-logo.png") },
             { "altText", new OpenApiString("Viya logo") },
         });
+        return extensions;
     }
 
     /// <summary>
