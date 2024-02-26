@@ -28,18 +28,27 @@ public class GoogleSubscriberClient : BackgroundService
         _logger.LogInformation($"{nameof(GoogleSubscriberClient)} Hosted Service running.");
 
         await _subscriber.StartAsync(async (msg, token) => {
-            using var scope = _services.CreateScope();
-            var handler = scope.ServiceProvider.GetRequiredService<IMessageHandler>();
-            var message = Map(msg);
+            _logger.LogInformation("Handling message {messageId}", msg.MessageId);
 
-            using (_logger.BeginScope(new List<KeyValuePair<string, object>>{
-                new("correlationId", message.CorrelationId),
-            }))
-            {
-                await handler.Handle(message);
+            try {
+                using var scope = _services.CreateScope();
+                var handler = scope.ServiceProvider.GetRequiredService<IMessageHandler>();
+                var message = Map(msg);
+
+                using (_logger.BeginScope(new List<KeyValuePair<string, object>>{
+                    new("correlationId", message.CorrelationId),
+                }))
+                {
+                    await handler.Handle(message);
+
+                    _logger.LogInformation("Succesfully handled message {messageId}", msg.MessageId);
+                    return SubscriberClient.Reply.Ack;
+                }
             }
-
-            return SubscriberClient.Reply.Ack;
+            catch (Exception ex) {
+                _logger.LogError(ex, ex.Message);
+                throw;
+            }
         });
     }
 
