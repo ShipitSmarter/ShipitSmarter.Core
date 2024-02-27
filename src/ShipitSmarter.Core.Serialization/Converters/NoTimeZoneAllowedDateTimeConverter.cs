@@ -37,6 +37,7 @@ public class NoTimeZoneAllowedDateTimeConverter : JsonConverter<DateTime>
     /// <param name="options"></param>
     public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
     {
-        JsonSerializer.Serialize(writer, value);
+        var unspecifiedDateTime = DateTime.SpecifyKind(value, DateTimeKind.Unspecified);
+        JsonSerializer.Serialize(writer, unspecifiedDateTime);
     }
 }
