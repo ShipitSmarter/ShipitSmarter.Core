@@ -49,4 +49,14 @@ public class CoreProblemDetails
     /// Correlation id of the request
     /// </summary>
     public Guid? CorrelationId { get; set; }
+    
+    /// <summary>
+    /// Turn the problem details into an exception
+    /// </summary>
+    /// <param name="message">(Optional) new title to give the exception</param>
+    /// <returns>A ProblemDetailsException</returns>
+    public ProblemDetailsException ToException(string? message = null)
+    {
+        return new ProblemDetailsException(this, message);
+    }
 }
