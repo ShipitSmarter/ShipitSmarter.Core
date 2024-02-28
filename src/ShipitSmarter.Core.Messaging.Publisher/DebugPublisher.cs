@@ -13,7 +13,6 @@ public class DebugPublisher : IPublisher
     public DebugPublisher(ILogger<DebugPublisher> logger)
     {
         _logger = logger;
-
     }
 
     public Task Publish<TMessage>(TMessage message) where TMessage : IMessageContract<TMessage>
