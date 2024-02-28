@@ -10,7 +10,7 @@ namespace ShipitSmarter.Core.StringGeneration;
 /// </summary>
 public class CryptoRandom : Random
 {
-    private static RandomNumberGenerator _r;
+    private readonly RandomNumberGenerator _r;
 #if !NETSTANDARD2_1
     private readonly byte[] _uint32Buffer = new byte[4];
 #endif
