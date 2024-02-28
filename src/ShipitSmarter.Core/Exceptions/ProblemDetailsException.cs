@@ -17,7 +17,7 @@ public class ProblemDetailsException: DomainException
         : base(message ?? problemDetails.Title ?? "An error occurred")
     {
         Detail = problemDetails.Detail;
-        StatusCode = problemDetails.Status ?? 400;
+        StatusCode = problemDetails.Status ?? 500;
         
         foreach (var error in problemDetails.Errors)
         {

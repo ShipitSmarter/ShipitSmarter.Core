@@ -1,6 +1,7 @@
-using System.Net.Http.Headers;
+using ShipitSmarter.Core;
 
-namespace ShipitSmarter.Core.AspNet.Extensions;
+// ReSharper disable once CheckNamespace
+namespace System.Net.Http.Headers;
 
 /// <summary>
 /// Extensions for <see cref="HttpHeaders"/>
