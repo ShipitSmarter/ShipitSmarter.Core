@@ -7,6 +7,15 @@ namespace ShipitSmarter.Core.Secrets;
 /// <typeparam name="T">The Type of the secret value</typeparam>
 public class SecretValue<T>(T value) : ISecretValue
 {
+    
+    /// <summary>
+    /// Additional constructor, to easily create an secret which has status updated
+    /// </summary>
+    public SecretValue(T value, bool isUpdated) : this(value)
+    {
+        Updated = isUpdated;
+    }
+    
     /// <inheritdoc cref="ISecretValue.Updated"/>
     public bool Updated { get; private set; } = false;
     
