@@ -1,9 +1,9 @@
 namespace ShipitSmarter.Core.Secrets;
 
 /// <summary>
-/// Helper to write configuration objects to file system
+/// Helper to write and read configuration objects that contain secrets to file system
 /// </summary>
-public interface ISecretConfigFileWriter
+public interface ISecretConfigFileReaderAndWriter : ISecretConfigFileReader
 {
     /// <summary>
     /// Write a configuration object to disk

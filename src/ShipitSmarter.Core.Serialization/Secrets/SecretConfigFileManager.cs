@@ -9,7 +9,7 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace ShipitSmarter.Core.Serialization.Secrets;
 
-public class SecretConfigFileManager : ISecretConfigFileReader, ISecretConfigFileWriter
+public class SecretConfigFileManager : ISecretConfigFileReaderAndWriter
 {
     private const string JsonExtension = ".json";
     private const string YamlExtension = ".yaml";

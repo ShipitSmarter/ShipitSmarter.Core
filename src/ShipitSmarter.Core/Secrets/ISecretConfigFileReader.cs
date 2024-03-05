@@ -1,7 +1,7 @@
 namespace ShipitSmarter.Core.Secrets;
 
 /// <summary>
-/// Helper to read configuration objects from file system
+/// Helper to read configuration objects that contain secrets from file system
 /// </summary>
 public interface ISecretConfigFileReader
 {
