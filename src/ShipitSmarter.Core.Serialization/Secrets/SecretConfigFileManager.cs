@@ -59,15 +59,15 @@ public class SecretConfigFileManager : ISecretConfigFileReaderAndWriter
 
     public void WriteToDisk<T>(T obj, string filepath)
     {
-        WriteToDiskInternal(obj, filepath, alwaysWriteSecrets: true);
+        WriteToDiskInternal(obj, filepath, onlyUpdatedSecrets: false);
     }
     
     public void WriteToDiskSecretsOnlyWhenUpdated<T>(T obj, string filepath)
     {
-        WriteToDiskInternal(obj, filepath, alwaysWriteSecrets: false);
+        WriteToDiskInternal(obj, filepath, onlyUpdatedSecrets: true);
     }
 
-    private void WriteToDiskInternal<T>(T obj, string filepath, bool alwaysWriteSecrets)
+    private void WriteToDiskInternal<T>(T obj, string filepath, bool onlyUpdatedSecrets)
     {
         var (parent, filenameWithoutExtension, extension) = SplitPath(filepath);
         // Write the none secrets to file
@@ -78,13 +78,12 @@ public class SecretConfigFileManager : ISecretConfigFileReaderAndWriter
         var secretProps = GetSecrets(obj);
         foreach (var secretProp in secretProps)
         {
-            var secretValueObj = secretProp.GetValue(obj) as ISecretValue;
-            if (alwaysWriteSecrets == false && secretValueObj?.Updated == false)
+            if (secretProp.GetValue(obj) is not ISecretValue secretValueObj || (onlyUpdatedSecrets && !secretValueObj.Updated))
             {
                 continue;
             }
             
-            var secretObj = new Dictionary<string, object?>{ [ToCamelCase(secretProp.Name)] = secretValueObj!.GetValue() };
+            var secretObj = new Dictionary<string, object?>{ [ToCamelCase(secretProp.Name)] = secretValueObj.GetValue() };
             contents = Serialize(secretObj, extension);
             _fileHandling.WriteAllText(Path.Combine(parent, $"{filenameWithoutExtension}.{secretProp.Name}.enc{extension}"), contents);
         }
