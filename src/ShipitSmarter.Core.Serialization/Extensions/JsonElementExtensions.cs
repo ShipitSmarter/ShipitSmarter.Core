@@ -1,5 +1,7 @@
+using System.Text.Json;
+
 // ReSharper disable once CheckNamespace
-namespace System.Text.Json;
+namespace ShipitSmarter.Core.Serialization;
 
 
 /// <summary>
