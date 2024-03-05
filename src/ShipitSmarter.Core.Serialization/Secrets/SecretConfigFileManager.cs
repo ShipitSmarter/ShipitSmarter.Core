@@ -25,7 +25,7 @@ public class SecretConfigFileManager : ISecretConfigFileReaderAndWriter
         .IgnoreUnmatchedProperties()
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .WithTypeConverter(new ObjectYamlTypeConverter())
-        // TODO add generic smartenum converter .WithTypeConverter(new FtpConnectionTypeYamlConverter())
+        .WithTypeConverter(new SmartEnumFromNameYamlTypeConverter())
         .Build();
 
     public SecretConfigFileManager(IFileHandling fileHandling)
