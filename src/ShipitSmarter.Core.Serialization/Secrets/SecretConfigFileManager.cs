@@ -160,7 +160,7 @@ public class SecretConfigFileManager : ISecretConfigFileReaderAndWriter
         return DeserializeSecretFromJson(secretProp, json, secretFilename);
     }
 
-    private ISecretValue DeserializeSecretFromJson(PropertyInfo secretProp, string contents, string secretFilename)
+    private static ISecretValue DeserializeSecretFromJson(PropertyInfo secretProp, string contents, string secretFilename)
     {
         var jsonDoc = JsonDocument.Parse(contents);
 
@@ -168,19 +168,19 @@ public class SecretConfigFileManager : ISecretConfigFileReaderAndWriter
         {
             var prop = jsonDoc.RootElement.GetProperty(ToCamelCase(secretProp.Name));
             var secretValueType = secretProp.PropertyType.GetGenericArguments()[0];
-            var constructed = typeof(SecretValue<>).MakeGenericType(secretValueType);
-            var deserializedProp = prop.Deserialize(secretValueType);
-            if (deserializedProp == null)
+            var secretType = typeof(SecretValue<>).MakeGenericType(secretValueType);
+            var secretValue = prop.Deserialize(secretValueType);
+            if (secretValue == null)
             {
                 throw new SecretException($"Cannot deserialize '{secretProp.Name}' from file '{secretFilename}'");
             }
-            var secretValue = Activator.CreateInstance(constructed, deserializedProp) as ISecretValue;
-            if (secretValue == null)
+            var secret = Activator.CreateInstance(secretType, secretValue, false) as ISecretValue;
+            if (secret == null)
             {
                 throw new SecretException($"Cannot create secret '{secretProp.Name}' from file '{secretFilename}'");
             }
 
-            return secretValue;
+            return secret;
         }
         catch (KeyNotFoundException)
         {

@@ -141,9 +141,9 @@ public class SecretConfigFileManagerTests
     
     public class TestableConfiguration
     {
-        public string Username { get; set; }
+        public string Username { get; set; } = null!;
         public DateTime SomeDate { get; set; }
-        public SecretValue<string> Password { get; set; }
-        public SecretValue<int> OtherSecret { get; set; }
+        public SecretValue<string> Password { get; set; } = null!;
+        public SecretValue<int> OtherSecret { get; set; } = null!;
     }
 }
