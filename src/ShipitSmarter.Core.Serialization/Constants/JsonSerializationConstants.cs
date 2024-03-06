@@ -18,7 +18,7 @@ public class JsonSerializationConstants
         Converters = { new JsonStringEnumConverter() },
         TypeInfoResolver = new DefaultJsonTypeInfoResolver
         {
-                Modifiers = { IgnoreSecrets }
+            Modifiers = { IgnoreSecrets }
         }
     };
     

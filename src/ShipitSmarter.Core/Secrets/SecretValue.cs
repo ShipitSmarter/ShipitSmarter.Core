@@ -1,26 +1,33 @@
+using System.Text.Json.Serialization;
+
 namespace ShipitSmarter.Core.Secrets;
 
 /// <summary>
 /// Wrapper class that holds a secret
 /// </summary>
-/// <param name="value">The secret value</param>
 /// <typeparam name="T">The Type of the secret value</typeparam>
-public class SecretValue<T>(T value) : ISecretValue
+public class SecretValue<T> : ISecretValue
 {
-    
     /// <summary>
-    /// Additional constructor, to easily create an secret which has status updated
+    /// Create a secret, optionally set updated to true
     /// </summary>
-    public SecretValue(T value, bool isUpdated) : this(value)
+    public SecretValue(T value, bool isUpdated = false)
     {
         Updated = isUpdated;
+        Value = value;
     }
-    
+
+    /// <summary>
+    /// The value of the secret
+    /// </summary>
+    [JsonIgnore]
+    public T Value { get; private set; }
+
     /// <inheritdoc cref="ISecretValue.Updated"/>
-    public bool Updated { get; private set; } = false;
-    
+    public bool Updated { get; private set; }
+
     /// <inheritdoc cref="ISecretValue.GetValue"/>
-    public object GetValue() => value ?? throw new NullReferenceException("SecretValue is null");
+    public object GetValue() => Value ?? throw new NullReferenceException("SecretValue is null");
     
     /// <summary>
     /// Update the secret with a new value
@@ -29,6 +36,6 @@ public class SecretValue<T>(T value) : ISecretValue
     public void Set(T newValue)
     {
         Updated = true;
-        value = newValue;
+        Value = newValue;
     }
 }
