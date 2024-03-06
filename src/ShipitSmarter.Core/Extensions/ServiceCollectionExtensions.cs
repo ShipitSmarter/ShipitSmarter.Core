@@ -1,17 +1,14 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using ShipitSmarter.Core;
+using ShipitSmarter.Core.Secrets;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// Configure TSettings from configuration
+/// Extension methods for the <see cref="IServiceCollection"/>
 /// </summary>
-/// <code>
-/// // in the Program.cs
-/// builder.Services.ConfigureSettings&lt;MySettings&gt;(builder.Configuration, nameof(MySettings)); 
-/// </code>
 public static class ServiceCollectionExtensions
 {
     /// <summary>
@@ -19,6 +16,7 @@ public static class ServiceCollectionExtensions
     /// You can now inject the "raw" settings object into your handlers, without taking a dependency on the Microsoft.Extensions.Options package.
     /// I find this preferable as the IOptions&lt;TSettings&gt; interface is largely just noise in this case.
     /// </summary>
+    /// <example>services.ConfigureSettings&lt;MySettings&gt;(builder.Configuration, nameof(MySettings));</example>
     public static IServiceCollection ConfigureSettings<TSettings>(this IServiceCollection services, IConfiguration configuration,
         string configurationSectionKey) where TSettings : class, new()
     {
