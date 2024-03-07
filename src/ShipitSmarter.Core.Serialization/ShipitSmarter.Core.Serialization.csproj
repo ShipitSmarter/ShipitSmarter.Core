@@ -34,8 +34,12 @@
     
     <ItemGroup>
         <PackageReference Include="JsonSchema.Net" Version="5.4.3" />
-        <PackageReference Include="System.Text.Json" Version="8.0.0" />
+        <PackageReference Include="System.Text.Json" Version="8.0.1" />
         <PackageReference Include="YamlDotNet" Version="13.7.1" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\ShipitSmarter.Core\ShipitSmarter.Core.csproj" />
     </ItemGroup>
 
 </Project>
