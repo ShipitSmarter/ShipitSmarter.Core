@@ -4,7 +4,7 @@ namespace ShipitSmarter.Core.Enumerations.v1;
 /// Available environments
 /// </summary>
 [Serializable]
-public enum Environment
+public enum EnvironmentEnum
 {
     /// <summary>
     /// Playground (test)
