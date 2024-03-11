@@ -1,3 +1,4 @@
+using Google.Api.Gax;
 using Google.Cloud.PubSub.V1;
 using ShipitSmarter.Core.Messaging;
 using ShipitSmarter.Core.Messaging.Publisher;
@@ -21,21 +22,11 @@ public static class ServiceCollectionExtensions
     {
         var topicName = TopicName.FromProjectTopic(projectId, topicId);
 
-        services.AddPublisherClient(topicName);
+        services.AddPublisherClient(builder => {
+            builder.TopicName = topicName;
+            builder.EmulatorDetection = EmulatorDetection.EmulatorOrProduction;
+        });
         services.AddScoped<IPublisher,GooglePublisherClient>();
-
-        return services;
-    }
-    
-    /// <summary>
-    /// Registers a <see cref="DebugPublisher"/> as <see cref="IPublisher"/>.
-    /// </summary>
-    /// <returns>A reference to this instance after the operation has completed.</returns>
-    public static IServiceCollection AddDebugPublisherClient(
-        this IServiceCollection services
-    )
-    {
-        services.AddSingleton<IPublisher, DebugPublisher>();
 
         return services;
     }
