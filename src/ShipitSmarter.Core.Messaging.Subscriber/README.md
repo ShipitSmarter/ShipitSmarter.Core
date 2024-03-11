@@ -34,3 +34,7 @@ The subscriber client is implemented as a `BackgroundService`. You have to regis
 ```csharp
 services.AddGoogleSubscriberClient<TMessageHandler>("project-id", "subscription-id");
 ```
+
+### Google Pub/Sub emulator
+
+The client builder is setup to recognize and use emulator settings when they are set. See [Testing apps locally with the emulator](https://cloud.google.com/pubsub/docs/emulator) for more information.
