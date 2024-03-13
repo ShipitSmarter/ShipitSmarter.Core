@@ -22,7 +22,7 @@ internal class OperatorValidator
                     IsValid = (value, dependentValue) => {
                         if (value is null || dependentValue is null)
                             return false;
-                        return ((IComparable)value).CompareTo((IComparable)dependentValue) >= 1;
+                        return Compare(value, dependentValue) >= 1;
                     }
                 }
             },
@@ -35,7 +35,7 @@ internal class OperatorValidator
                             return true;
                         if (value is null || dependentValue is null)
                             return false;
-                        return ((IComparable)value).CompareTo((IComparable)dependentValue) >= 0;
+                        return Compare(value, dependentValue) >= 0;
                     }
                 }
             },
@@ -46,7 +46,7 @@ internal class OperatorValidator
                     IsValid = (value, dependentValue) => {
                         if (value is null || dependentValue is null)
                             return false;
-                        return ((IComparable)value).CompareTo((IComparable)dependentValue) <= -1;
+                        return Compare(value, dependentValue) <= -1;
                     }
                 }
             },
@@ -59,10 +59,18 @@ internal class OperatorValidator
                             return true;
                         if (value is null || dependentValue is null)
                             return false;
-                        return ((IComparable)value).CompareTo((IComparable)dependentValue) <= 0;
+                        return Compare(value, dependentValue) <= 0;
                     }
                 }
             },
         };
+    }
+
+    private static int Compare(object value, object dependentValue)
+    {
+        var comparableValue = (IComparable)value;
+        var comparableDependentValue = (IComparable)dependentValue;
+
+        return comparableValue.CompareTo(comparableDependentValue);
     }
 }
