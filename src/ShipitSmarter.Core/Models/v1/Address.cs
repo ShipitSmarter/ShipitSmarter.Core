@@ -22,5 +22,6 @@ public class Address()
     public string? ContactName { get; set; }
     public string? ContactPhone { get; set; }
     public string? ContactEmail { get; set; }
+    public List<AddressAccount>? Accounts { get; set; }
 }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
