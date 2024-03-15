@@ -1,3 +1,4 @@
+using Google.Api.Gax;
 using Google.Cloud.PubSub.V1;
 using ShipitSmarter.Core.Messaging;
 using ShipitSmarter.Core.Messaging.Subscriber;
@@ -21,7 +22,10 @@ public static class ServiceCollectionExtensions
     {
         var subscriptionName = SubscriptionName.FromProjectSubscription(projectId, subscriptionId);
 
-        services.AddSubscriberClient(subscriptionName);
+        services.AddSubscriberClient(builder => {
+            builder.SubscriptionName = subscriptionName;
+            builder.EmulatorDetection = EmulatorDetection.EmulatorOrProduction;
+        });
         services.AddScoped<IMessageHandler, TMessageHandler>();
         services.AddHostedService<GoogleSubscriberClient>();
 
