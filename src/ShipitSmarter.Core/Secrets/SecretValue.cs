@@ -3,39 +3,32 @@ using System.Text.Json.Serialization;
 namespace ShipitSmarter.Core.Secrets;
 
 /// <summary>
-/// Wrapper class that holds a secret
+/// Wrapper class that holds an encrypted secret
 /// </summary>
-/// <typeparam name="T">The Type of the secret value</typeparam>
-public class SecretValue<T> : ISecretValue
+public class SecretValue
 {
     /// <summary>
     /// Create a secret, optionally set updated to true
     /// </summary>
-    public SecretValue(T value, bool isUpdated = false)
+    public SecretValue(string encryptedData, string keyId, bool isUpdated = false)
     {
+        EncryptedData = encryptedData;
         Updated = isUpdated;
-        Value = value;
+        KeyId = keyId;
     }
 
     /// <summary>
-    /// The value of the secret
+    /// The encrypted data of the secret (as base64 string)
     /// </summary>
-    [JsonIgnore]
-    public T Value { get; private set; }
+    public string EncryptedData { get; private set; }
 
-    /// <inheritdoc cref="ISecretValue.Updated"/>
+    /// <summary>
+    /// Placeholder that tracks if the value has been updated 
+    /// </summary>
     public bool Updated { get; private set; }
 
-    /// <inheritdoc cref="ISecretValue.GetValue"/>
-    public object GetValue() => Value ?? throw new NullReferenceException("SecretValue is null");
-    
     /// <summary>
-    /// Update the secret with a new value
+    /// Id of the key used to encrypt (SSH-RSA public key)
     /// </summary>
-    /// <param name="newValue">The new value to set for the secret</param>
-    public void Set(T newValue)
-    {
-        Updated = true;
-        Value = newValue;
-    }
+    public string KeyId { get; private set; }
 }
