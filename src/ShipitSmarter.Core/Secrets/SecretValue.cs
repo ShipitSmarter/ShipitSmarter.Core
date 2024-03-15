@@ -8,10 +8,10 @@ public class SecretValue
     /// <summary>
     /// Create a secret, optionally set updated to true
     /// </summary>
-    public SecretValue(string encryptedData, string keyId, bool isUpdated = false)
+    public SecretValue(string encryptedData, string keyId, bool updated = false)
     {
         EncryptedData = encryptedData;
-        Updated = isUpdated;
+        Updated = updated;
         KeyId = keyId;
     }
 
